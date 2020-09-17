@@ -1,17 +1,19 @@
 import React, { Fragment } from "react";
-//import { Route, BrowserRouter, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+import Login from "./pages/Login";
+
+
+
+
 const App = () => {
   return (
     <Fragment>
-      <h1>Hello world</h1>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+      </BrowserRouter>
     </Fragment>
   );
 };
- //dssds
 export default App;
-
-// <Fragment>
-//       <BrowserRouter>
-//         <Switch></Switch>
-//       </BrowserRouter>
-//     </Fragment>
