@@ -35,3 +35,13 @@
     box-shadow: 0 2px 4px 0 rgba(10,46,101,.08);
 }
   
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
