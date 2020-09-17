@@ -7,18 +7,16 @@ import CW from "../assets/cw.svg";
 const Login = () => {
   return (
     <Fragment>
-      <div style={{ backgroundColor: "#f4f7fa" }}>
+      <div>
         <div className="container" style={{ position: "relative" }}>
           <Row
             style={{
               margin: "0",
-              top: "50%",
               transform: "translate(0, 50%)",
             }}
           >
             <Col span={12}>
               <div>
-                <img src={CW} alt="Cowrywise" />
                 <h1
                   style={{
                     fontWeight: "700",
@@ -42,6 +40,40 @@ const Login = () => {
             <Col span={12}>
               {" "}
               <LoginForm />
+              <Row>
+                <Col span={18} style={{paddingLeft: "10px"}}>
+                  <a
+                    href="#!"
+                    style={{
+                      color: "grey",
+                      fontSize: ".9rem",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    Trouble signing in?{" "}
+                    <b
+                      style={{
+                        color: "#0066f5",
+                        fontSize: ".9rem",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Contact support
+                    </b>
+                  </a>
+                </Col>
+                <Col span={6}>
+                  <b
+                    style={{
+                      color: "grey",
+                      fontSize: ".9rem",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Privacy | Terms
+                  </b>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </div>
