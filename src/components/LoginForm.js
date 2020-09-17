@@ -35,7 +35,8 @@ const LoginForm = () => {
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[{ required: true, message: "Please input your Password!" }]}
+          style={{color:"#0066f5"}}
+          rules={[{ required: true, }]}
         >
           <Input
             style={{

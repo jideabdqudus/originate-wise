@@ -16,12 +16,20 @@ const Login = () => {
             }}
           >
             <Col span={12}>
+              <img
+                src={CW}
+                alt="Cowrywise"
+                style={{ padding: "0", margin: "0" }}
+              />
               <div>
                 <h1
                   style={{
                     fontWeight: "700",
                     fontSize: "3rem",
                     color: "#0a2e65",
+                    paddingTop: "0",
+                    marginTop: "0",
+                    lineHeight: "1.2rem",
                   }}
                 >
                   Welcome back,
@@ -30,7 +38,7 @@ const Login = () => {
                   style={{
                     color: "rgba(195, 205, 218, 1)",
                     fontWeight: "bold",
-                    fontSize: "2rem",
+                    fontSize: "2.3rem",
                   }}
                 >
                   Sign in to continue
@@ -41,7 +49,7 @@ const Login = () => {
               {" "}
               <LoginForm />
               <Row>
-                <Col span={18} style={{paddingLeft: "10px"}}>
+                <Col span={18} style={{ paddingLeft: "10px" }}>
                   <a
                     href="#!"
                     style={{
