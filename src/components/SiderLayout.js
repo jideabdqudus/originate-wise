@@ -12,6 +12,7 @@ import {
 import "./components.css";
 
 import CW from "../assets/cw.svg";
+import DashCard from "./DashCard";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -51,6 +52,7 @@ class SiderLayout extends React.Component {
                 marginLeft: "20px",
               }}
             />
+            <h1 style={{ marginBottom: "20px" }}>Howdy Abdul-Qudus</h1>
             <Menu.Item
               key="1"
               icon={
@@ -202,7 +204,7 @@ class SiderLayout extends React.Component {
               className="cardHero"
               style={{ padding: 24, minHeight: 360, height: "100vh" }}
             >
-              Bill is a cat.
+              <DashCard/>
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
