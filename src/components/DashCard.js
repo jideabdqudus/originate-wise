@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Card, Row, Col } from "antd";
+import { Card, Row, Col, Button } from "antd";
 import {
   TrophyOutlined,
   ThunderboltOutlined,
@@ -13,16 +13,85 @@ const DashCard = () => {
     <div>
       <Fragment>
         <Row>
-          <Col span={6}>
+          <Col span={4}>
             <Row>
-              <Col span={24}>Total Balance</Col>
+              <Col
+                span={24}
+                style={{
+                  fontSize: ".95rem",
+                  fontWeight: "500",
+                  color: "rgba(10,46,101,.5)",
+                }}
+              >
+                Total Balance
+              </Col>
             </Row>
             <Row>
-              <Col span={24}>₦ 0 .00 </Col>
+              <Col span={24}>
+                <h2
+                  style={{
+                    fontSize: "2.8rem",
+                    fontWeight: "600",
+                    color: "#0a2e65",
+                  }}
+                >
+                  <sup
+                    style={{
+                      fontSize: "1.45rem",
+                      fontWeight: "500",
+                      top: "-1em",
+                      marginRight: "4px",
+                    }}
+                  >
+                    ₦
+                  </sup>
+                  0
+                  <sub
+                    style={{
+                      bottom: ".02em",
+                      marginLeft: "4px",
+                      fontWeight: "700",
+                      opacity: ".6",
+                      fontSize: ".5em",
+                    }}
+                  >
+                    .00
+                  </sub>
+                </h2>
+              </Col>
             </Row>
           </Col>
-          <Col span={6}>Hello</Col>
-          <Col span={12}>Hello</Col>
+          <Col span={4}>
+            <Button className="myBtn">ADD MONEY</Button>
+          </Col>
+          <Col span={16}>
+            <Row>
+              <Col
+                span={24}
+                style={{
+                  fontSize: ".95rem",
+                  fontWeight: "500",
+                  color: "rgba(10,46,101,.5)",
+                }}
+              >
+                Portfolio Growth
+              </Col>
+              <Col span={24}>
+                <hr
+                  style={{
+                    width: "500px",
+                    margin: 0,
+                    padding: 0,
+                    color: "skyblue",
+                    marginTop: "30px",
+                  }}
+                />
+              </Col>
+              <Col span={24}>
+                <h3 style={{marginTop:"20px"}}>Keep going you've started making money moves</h3>
+              </Col>
+            </Row>
+          </Col>
         </Row>
         <h1>Save & Invest</h1>
 
@@ -108,9 +177,7 @@ const DashCard = () => {
                 </Card>
               </Col>
               <Col span={24}>
-                <Card title="Default size card" extra={<a href="#!">More</a>}>
-                  <p>Hello</p>
-                </Card>
+                <p>Hello</p>
               </Col>
             </Row>
           </Col>
