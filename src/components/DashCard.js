@@ -1,11 +1,5 @@
 import React, { Fragment } from "react";
-import { Card, Row, Col, Button } from "antd";
-import {
-  TrophyOutlined,
-  ThunderboltOutlined,
-  ToTopOutlined,
-  SendOutlined,
-} from "@ant-design/icons";
+import { Card, Row, Col, Button, Badge } from "antd";
 import "./components.css";
 
 import Plan from "../assets/emergency-plan-2.6855725.svg";
@@ -205,7 +199,7 @@ const DashCard = () => {
                   }}
                 >
                   <a style={{ color: "#fff" }} href="#!">
-                    REFERALS GIFTS
+                    REFERRAL GIFTS
                   </a>
                 </p>
               </Card>
@@ -227,14 +221,13 @@ const DashCard = () => {
         </h1>
         <Row>
           <Col span={9}>
-            <Card className="cardHero">
-              <TrophyOutlined
-                style={{ fontSize: "30px", marginBottom: "40px" }}
-              />
-              <p style={{ fontSize: "15px", fontWeight: "500" }}>
-                Build Emergency Funds
-              </p>
-            </Card>
+            <Badge.Ribbon text="REGULAR PLAN MATURITY" title="Amazing Deals">
+              <Card className="cardHero" style={{ backgroundColor: "#e1f6ff", margin:0 }}>
+                <p style={{ fontSize: "15px", fontWeight: "500" }}>
+                  Build Emergency Funds
+                </p>
+              </Card>
+            </Badge.Ribbon>
           </Col>
         </Row>
         <Row gutter={[24, 24]}>
