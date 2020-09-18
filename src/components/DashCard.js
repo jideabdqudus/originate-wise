@@ -8,6 +8,12 @@ import {
 } from "@ant-design/icons";
 import "./components.css";
 
+import Plan from "../assets/emergency-plan-2.6855725.svg";
+import Savings from "../assets/saving-plans.8ae6bb5.svg";
+import Chart from "../assets/naira_funds_blue.77b50e2.svg";
+import Drop from "../assets/plan.bffb472.svg";
+import Box from "../assets/giftbox-white.90fb8b4.svg";
+
 const DashCard = () => {
   return (
     <div>
@@ -88,59 +94,137 @@ const DashCard = () => {
                 />
               </Col>
               <Col span={24}>
-                <h3 style={{marginTop:"20px"}}>Keep going you've started making money moves</h3>
+                <h3
+                  style={{
+                    marginTop: "20px",
+                    color: "rgba(10,46,101)",
+                    opacity: ".6",
+                  }}
+                >
+                  Keep going you've started making money moves
+                </h3>
               </Col>
             </Row>
           </Col>
         </Row>
-        <h1>Save & Invest</h1>
 
-        <Row gutter={[24, 24]}>
-          <Col span={6}>
-            <Card className="cardHero">
-              <TrophyOutlined
-                style={{ fontSize: "30px", marginBottom: "40px" }}
-              />
-              <p style={{ fontSize: "15px", fontWeight: "500" }}>
-                Build Emergency Funds
-              </p>
-            </Card>
-          </Col>
-          <Col span={6}>
-            <Card className="cardHero">
-              <ThunderboltOutlined
-                style={{ fontSize: "30px", marginBottom: "40px" }}
-              />
-              <p style={{ fontSize: "15px", fontWeight: "500" }}>
-                Build Emergency Funds
-              </p>
-            </Card>
-          </Col>
-          <Col span={6}>
-            <Card className="cardHero">
-              <ToTopOutlined
-                style={{ fontSize: "30px", marginBottom: "40px" }}
-              />
-              <p style={{ fontSize: "15px", fontWeight: "500" }}>
-                Build Emergency Funds
-              </p>
-            </Card>
-          </Col>
-          <Col span={6}>
-            <Card className="cardHero">
-              <SendOutlined
-                style={{ fontSize: "30px", marginBottom: "40px" }}
-              />
-              <p style={{ fontSize: "15px", fontWeight: "500" }}>
-                Build Emergency Funds
-              </p>
-            </Card>
-          </Col>
-        </Row>
+        <div style={{ marginTop: "60px", padding: "1rem" }}>
+          <h1
+            style={{
+              color: "rgba(10,46,101)",
+              opacity: ".3",
+              fontSize: "40px",
+              fontWeight: "600",
+            }}
+          >
+            Save & Invest
+          </h1>
+          <Row gutter={[24, 24]}>
+            <Col span={6}>
+              <Card className="cardHero">
+                <img
+                  src={Plan}
+                  alt="Emergency Plan"
+                  height="56px"
+                  width="56px"
+                />
+                <p
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    color: "#0e397c",
+                    marginTop: "20px",
+                  }}
+                >
+                  <a style={{ color: "#0e397c" }} href="#!">
+                    Build Emergency Funds
+                  </a>
+                </p>
+              </Card>
+            </Col>
+            <Col span={6}>
+              <Card className="cardHero">
+                <img
+                  src={Savings}
+                  alt="Savings Plan"
+                  height="56px"
+                  width="56px"
+                />
+                <p
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    color: "#0e397c",
+                    marginTop: "20px",
+                  }}
+                >
+                  <a style={{ color: "#0e397c" }} href="#!">
+                    My Savings Plan
+                  </a>
+                </p>
+              </Card>
+            </Col>
+            <Col span={6}>
+              <Card className="cardHero">
+                <img
+                  src={Chart}
+                  alt="Savings Plan"
+                  height="56px"
+                  width="56px"
+                />
+                <p
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    color: "#0e397c",
+                    marginTop: "20px",
+                  }}
+                >
+                  <a style={{ color: "#0e397c" }} href="#!">
+                    Invest in mutual funds
+                  </a>
+                </p>
+              </Card>
+            </Col>
+            <Col span={6}>
+              <Card
+                className="cardHero"
+                style={{
+                  backgroundImage: `url(${Drop})`,
+                  boxShadow: "0 10px 14px 0 rgba(0,102,245,.37)",
+                  paddingLeft: "30px",
+                }}
+              >
+                <img src={Box} alt="Savings Plan" height="56px" width="56px" />
+                <p
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    color: "#fff",
+                    marginTop: "20px",
+                  }}
+                >
+                  <a style={{ color: "#fff" }} href="#!">
+                    REFERALS GIFTS
+                  </a>
+                </p>
+              </Card>
+            </Col>
+          </Row>
+        </div>
       </Fragment>
-      <Fragment>
-        <h1>Save & Invest</h1>
 
+      <Fragment>
+        <h1
+          style={{
+            color: "rgba(10,46,101)",
+            opacity: ".3",
+            fontSize: "40px",
+            fontWeight: "600",
+          }}
+        >
+          My Plans
+        </h1>
         <Row>
           <Col span={9}>
             <Card className="cardHero">
