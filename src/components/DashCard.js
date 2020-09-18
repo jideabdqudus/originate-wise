@@ -12,6 +12,18 @@ const DashCard = () => {
   return (
     <div>
       <Fragment>
+        <Row>
+          <Col span={6}>
+            <Row>
+              <Col span={24}>Total Balance</Col>
+            </Row>
+            <Row>
+              <Col span={24}>₦ 0 .00 </Col>
+            </Row>
+          </Col>
+          <Col span={6}>Hello</Col>
+          <Col span={12}>Hello</Col>
+        </Row>
         <h1>Save & Invest</h1>
 
         <Row gutter={[24, 24]}>
@@ -76,7 +88,7 @@ const DashCard = () => {
           <Col span={18}>
             <Card
               title="PORTFOLIO"
-              extra={<a href="#">GET INVESTMENT LETTER</a>}
+              extra={<a href="#!">GET INVESTMENT LETTER</a>}
             >
               <Row>
                 <Col span={12}>Hello</Col>
@@ -91,12 +103,12 @@ const DashCard = () => {
           <Col span={6}>
             <Row>
               <Col span={24}>
-                <Card title="Default size card" extra={<a href="#">More</a>}>
+                <Card title="Default size card" extra={<a href="#!">More</a>}>
                   <p>Hello</p>
                 </Card>
               </Col>
               <Col span={24}>
-                <Card title="Default size card" extra={<a href="#">More</a>}>
+                <Card title="Default size card" extra={<a href="#!">More</a>}>
                   <p>Hello</p>
                 </Card>
               </Col>
