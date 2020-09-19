@@ -7,6 +7,7 @@ import Savings from "../assets/saving-plans.8ae6bb5.svg";
 import Chart from "../assets/naira_funds_blue.77b50e2.svg";
 import Drop from "../assets/plan.bffb472.svg";
 import Box from "../assets/giftbox-white.90fb8b4.svg";
+import 
 
 const DashCard = () => {
   return (
@@ -222,26 +223,221 @@ const DashCard = () => {
         <Row>
           <Col span={9}>
             <Badge.Ribbon text="REGULAR PLAN MATURITY" title="Amazing Deals">
-              <Card className="cardHero" style={{ backgroundColor: "#e1f6ff", margin:0 }}>
+              <Card
+                className="cardHero"
+                style={{ backgroundColor: "#e1f6ff", margin: 0 }}
+              >
                 <p style={{ fontSize: "15px", fontWeight: "500" }}>
-                  Build Emergency Funds
+                  New House Purchase
                 </p>
+                <h2
+                  style={{
+                    fontSize: "2.4rem",
+                    fontWeight: "600",
+                    color: "#0a2e65",
+                  }}
+                >
+                  <sup
+                    style={{
+                      fontSize: "1.2rem",
+                      fontWeight: "500",
+                      top: "-1em",
+                      marginRight: "4px",
+                    }}
+                  >
+                    ₦
+                  </sup>
+                  0
+                  <sub
+                    style={{
+                      bottom: ".02em",
+                      marginLeft: "4px",
+                      fontWeight: "700",
+                      opacity: ".6",
+                      fontSize: ".3em",
+                    }}
+                  >
+                    .00
+                  </sub>
+                </h2>
+                <hr />
               </Card>
             </Badge.Ribbon>
           </Col>
         </Row>
-        <Row gutter={[24, 24]}>
+        <Row gutter={[24, 24]} style={{ marginTop: "100px" }}>
           <Col span={18}>
             <Card
               title="PORTFOLIO"
               extra={<a href="#!">GET INVESTMENT LETTER</a>}
             >
               <Row>
-                <Col span={12}>Hello</Col>
                 <Col span={12}>
-                  <Col span={24}>Hello</Col>
-                  <Col span={24}>Hello</Col>
-                  <Col span={24}>Hello</Col>
+                  <div style={{ textAlign: "center", margin: "auto" }}>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        marginTop: "60px",
+                        marginBottom: "0px",
+                        color: "rgb(10, 46, 101)",
+                      }}
+                    >
+                      Net worth
+                    </p>
+                    <h1
+                      style={{
+                        fontSize: "30px",
+                        fontWeight: "600",
+                        paddingTop: "0px",
+                        color: "rgb(10, 46, 101)",
+                      }}
+                    >
+                      ₦0.00
+                    </h1>
+
+                    <Badge
+                      color="blue"
+                      text="Savings"
+                      style={{ margin: "10px" }}
+                    />
+                    <Badge
+                      color="cyan"
+                      text="Investments"
+                      style={{ margin: "10px" }}
+                    />
+                    <Badge
+                      color="grey"
+                      text="Stash"
+                      style={{ margin: "10px" }}
+                    />
+                  </div>
+                </Col>
+                <Col span={12}>
+                  <Col span={24}>
+                    <h2
+                      style={{
+                        fontSize: "22px",
+                        fontWeight: "600",
+                        color: "rgb(10, 46, 101)",
+                      }}
+                    >
+                      Savings
+                      <p
+                        style={{
+                          fontSize: "1.5rem",
+                          fontWeight: "600",
+                          color: "#0a2e65",
+                          opacity: ".5",
+                        }}
+                      >
+                        <sup
+                          style={{
+                            fontSize: ".6rem",
+                            fontWeight: "500",
+                            top: "-1em",
+                            marginRight: "4px",
+                          }}
+                        >
+                          ₦
+                        </sup>
+                        0
+                        <sub
+                          style={{
+                            bottom: ".02em",
+                            marginLeft: "4px",
+                            fontWeight: "700",
+                            opacity: ".6",
+                            fontSize: ".5em",
+                          }}
+                        >
+                          .00
+                        </sub>
+                      </p>
+                    </h2>
+                  </Col>
+                  <Col
+                    span={24}
+                    style={{
+                      fontSize: "22px",
+                      fontWeight: "600",
+                      color: "rgb(10, 46, 101)",
+                    }}
+                  >
+                    Investments
+                    <p
+                      style={{
+                        fontSize: "1.5rem",
+                        fontWeight: "600",
+                        color: "#0a2e65",
+                        opacity: ".5",
+                      }}
+                    >
+                      <sup
+                        style={{
+                          fontSize: ".6rem",
+                          fontWeight: "500",
+                          top: "-1em",
+                          marginRight: "4px",
+                        }}
+                      >
+                        ₦
+                      </sup>
+                      0
+                      <sub
+                        style={{
+                          bottom: ".02em",
+                          marginLeft: "4px",
+                          fontWeight: "700",
+                          opacity: ".6",
+                          fontSize: ".5em",
+                        }}
+                      >
+                        .00
+                      </sub>
+                    </p>
+                  </Col>
+                  <Col
+                    span={24}
+                    style={{
+                      fontSize: "22px",
+                      fontWeight: "600",
+                      color: "rgb(10, 46, 101)",
+                    }}
+                  >
+                    Stash
+                    <p
+                      style={{
+                        fontSize: "1.5rem",
+                        fontWeight: "600",
+                        color: "#0a2e65",
+                        opacity: ".5",
+                      }}
+                    >
+                      <sup
+                        style={{
+                          fontSize: ".6rem",
+                          fontWeight: "500",
+                          top: "-1em",
+                          marginRight: "4px",
+                        }}
+                      >
+                        ₦
+                      </sup>
+                      0
+                      <sub
+                        style={{
+                          bottom: ".02em",
+                          marginLeft: "4px",
+                          fontWeight: "700",
+                          opacity: ".6",
+                          fontSize: ".5em",
+                        }}
+                      >
+                        .00
+                      </sub>
+                    </p>
+                  </Col>
                 </Col>
               </Row>
             </Card>
@@ -249,12 +445,16 @@ const DashCard = () => {
           <Col span={6}>
             <Row>
               <Col span={24}>
-                <Card title="Default size card" extra={<a href="#!">More</a>}>
-                  <p>Hello</p>
+                <Card title="SAVING SCORE" style={{ marginBottom: "20px" }}>
+                  <h1 style={{ color: "rgb(10, 46,101)", fontSize: "50px" }}>
+                    40<span style={{ fontSize: "20px" }}>/100</span>
+                  </h1>
                 </Card>
               </Col>
               <Col span={24}>
-                <p>Hello</p>
+                <Card title="RISK APPETITE">
+                  <p>Hello</p>
+                </Card>
               </Col>
             </Row>
           </Col>
