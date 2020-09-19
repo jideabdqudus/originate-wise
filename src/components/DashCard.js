@@ -7,7 +7,7 @@ import Savings from "../assets/saving-plans.8ae6bb5.svg";
 import Chart from "../assets/naira_funds_blue.77b50e2.svg";
 import Drop from "../assets/plan.bffb472.svg";
 import Box from "../assets/giftbox-white.90fb8b4.svg";
-import 
+import Fire from "../assets/fire.svg";
 
 const DashCard = () => {
   return (
@@ -269,6 +269,7 @@ const DashCard = () => {
           <Col span={18}>
             <Card
               title="PORTFOLIO"
+              style={{ borderRadius: "7px" }}
               extra={<a href="#!">GET INVESTMENT LETTER</a>}
             >
               <Row>
@@ -445,15 +446,33 @@ const DashCard = () => {
           <Col span={6}>
             <Row>
               <Col span={24}>
-                <Card title="SAVING SCORE" style={{ marginBottom: "20px" }}>
+                <Card
+                  title="SAVING SCORE"
+                  style={{ marginBottom: "20px", borderRadius: "7px" }}
+                >
                   <h1 style={{ color: "rgb(10, 46,101)", fontSize: "50px" }}>
                     40<span style={{ fontSize: "20px" }}>/100</span>
                   </h1>
                 </Card>
               </Col>
               <Col span={24}>
-                <Card title="RISK APPETITE">
-                  <p>Hello</p>
+                <Card title="RISK APPETITE" style={{ borderRadius: "7px" }}>
+                  <img
+                    src={Fire}
+                    alt="Burning Appetite"
+                    height="56px"
+                    width="56px"
+                  />
+                  <span
+                    style={{
+                      margin: "10px",
+                      fontSize: "20px",
+                      color: "gray",
+                      fontWeight: "600",
+                    }}
+                  >
+                    You're Balanced
+                  </span>
                 </Card>
               </Col>
             </Row>

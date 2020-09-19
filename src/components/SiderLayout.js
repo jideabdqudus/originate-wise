@@ -205,7 +205,7 @@ class SiderLayout extends React.Component {
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
+            ©2020 Jide Abdul-Qudus || The Qoder{" "}
           </Footer>
         </Layout>
       </Layout>
