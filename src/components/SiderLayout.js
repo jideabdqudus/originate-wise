@@ -33,7 +33,11 @@ class SiderLayout extends React.Component {
         style={{ minHeight: "100vh", backgroundColor: "#f4f7fa !important" }}
       >
         <Sider
-          style={{ backgroundColor: "#f4f7fa", border: "none" }}
+          style={{
+            backgroundColor: "#f4f7fa",
+            border: "none",
+            position: "fixed",
+          }}
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
@@ -202,10 +206,19 @@ class SiderLayout extends React.Component {
             style={{ padding: 0, backgroundColor: "#f4f7fa" }}
           />
           <Content style={{ margin: "0 16px" }}>
-            <h1 style={{ textAlign: "center", margin: "10px" }}>
+            <h1
+              style={{
+                textAlign: "center",
+                margin: "10px",
+                fontWeight: "bolder",
+              }}
+            >
               ACCOUNT OVERVIEW
             </h1>
-            <div className="site-layout-background">
+            <div
+              className="site-layout-background"
+              style={{ marginLeft: "80px" }}
+            >
               <DashCard />
             </div>
           </Content>

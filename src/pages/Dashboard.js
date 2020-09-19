@@ -1,12 +1,12 @@
-import React from 'react'
-import SiderLayout from '../components/SiderLayout'
+import React from "react";
+import SiderLayout from "../components/SiderLayout";
 
 const Dashboard = () => {
-    return (
-        <div>
-            <SiderLayout/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <SiderLayout />
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

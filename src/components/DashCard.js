@@ -46,7 +46,7 @@ const DashCard = () => {
                   >
                     ₦
                   </sup>
-                  0
+                  320,000
                   <sub
                     style={{
                       bottom: ".02em",
@@ -56,7 +56,7 @@ const DashCard = () => {
                       fontSize: ".5em",
                     }}
                   >
-                    .00
+                    .40
                   </sub>
                 </h2>
               </Col>
@@ -252,7 +252,7 @@ const DashCard = () => {
                   >
                     ₦
                   </sup>
-                  0
+                  247,900
                   <sub
                     style={{
                       bottom: ".02em",
@@ -299,7 +299,7 @@ const DashCard = () => {
                         color: "rgb(10, 46, 101)",
                       }}
                     >
-                      ₦0.00
+                      ₦646,000.00
                     </h1>
 
                     <Badge
@@ -347,7 +347,7 @@ const DashCard = () => {
                         >
                           ₦
                         </sup>
-                        0
+                        549,000
                         <sub
                           style={{
                             bottom: ".02em",
@@ -357,7 +357,7 @@ const DashCard = () => {
                             fontSize: ".5em",
                           }}
                         >
-                          .00
+                          .40
                         </sub>
                       </p>
                     </h2>
@@ -389,7 +389,7 @@ const DashCard = () => {
                       >
                         ₦
                       </sup>
-                      0
+                      120,000
                       <sub
                         style={{
                           bottom: ".02em",
@@ -456,7 +456,7 @@ const DashCard = () => {
                   style={{ marginBottom: "20px", borderRadius: "7px" }}
                 >
                   <h1 style={{ color: "rgb(10, 46,101)", fontSize: "50px" }}>
-                    40<span style={{ fontSize: "20px" }}>/100</span>
+                    70<span style={{ fontSize: "20px" }}>/100</span>
                   </h1>
                 </Card>
               </Col>
