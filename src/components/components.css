@@ -51,10 +51,29 @@
   flex: 0 0 100% !important;
 }
 
+.dashBalance {
+  max-width: 100% !important;
+  flex: 0 0 20% !important;
+}
+
+.dashGrowth {
+  max-width: 100% !important;
+  margin: 10px;
+  flex: 0 0 20% !important;
+}
+
 @media screen and (max-width: 600px) {
   .loginForm {
     width: 100% !important;
     max-width: 100% !important;
-    flex: 0 0  100% !important;
+    flex: 0 0 100% !important;
+  }
+  .dashBalance {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .dashGrowth {
+    max-width: 100% !important;
+    flex: 0 0 20% !important;
   }
 }

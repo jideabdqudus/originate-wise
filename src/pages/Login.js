@@ -38,12 +38,12 @@ const Login = () => {
             </Col>
             <Col span={12} className="loginHeading">
               {" "}
-              <div >
+              <div>
                 <LoginForm />
               </div>
               <Row>
                 <Col
-                  span={18}
+                  span={24}
                   style={{ paddingLeft: "10px" }}
                   className="loginHeading"
                 >
@@ -66,17 +66,6 @@ const Login = () => {
                       Contact support
                     </b>
                   </a>
-                </Col>
-                <Col span={6}>
-                  <b
-                    style={{
-                      color: "grey",
-                      fontSize: ".9rem",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Privacy | Terms
-                  </b>
                 </Col>
               </Row>
             </Col>

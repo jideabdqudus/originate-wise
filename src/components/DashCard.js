@@ -14,7 +14,7 @@ const DashCard = () => {
     <div>
       <Fragment>
         <Row>
-          <Col span={4}>
+          <Col span={4} className="dashBalance">
             <Row>
               <Col
                 span={24}
@@ -62,10 +62,14 @@ const DashCard = () => {
               </Col>
             </Row>
           </Col>
-          <Col span={4}>
+          <Col
+            span={4}
+            className="dashBalance"
+            style={{ marginBottom: "10px" }}
+          >
             <Button className="myBtn">ADD MONEY</Button>
           </Col>
-          <Col span={16}>
+          <Col span={16} className="dashGrowth">
             <Row>
               <Col
                 span={24}
