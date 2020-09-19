@@ -114,12 +114,13 @@ const DashCard = () => {
               opacity: ".3",
               fontSize: "40px",
               fontWeight: "600",
+              lineHeight: "1.1em",
             }}
           >
             Save & Invest
           </h1>
           <Row gutter={[24, 24]}>
-            <Col span={6}>
+            <Col span={6} className="dashSavingsCard">
               <Card className="cardHero">
                 <img
                   src={Plan}
@@ -141,7 +142,7 @@ const DashCard = () => {
                 </p>
               </Card>
             </Col>
-            <Col span={6}>
+            <Col span={6} className="dashSavingsCard">
               <Card className="cardHero">
                 <img
                   src={Savings}
@@ -163,7 +164,7 @@ const DashCard = () => {
                 </p>
               </Card>
             </Col>
-            <Col span={6}>
+            <Col span={6} className="dashSavingsCard">
               <Card className="cardHero">
                 <img
                   src={Chart}
@@ -185,7 +186,7 @@ const DashCard = () => {
                 </p>
               </Card>
             </Col>
-            <Col span={6}>
+            <Col span={6} className="dashSavingsCard">
               <Card
                 className="cardHero"
                 style={{
@@ -225,7 +226,7 @@ const DashCard = () => {
           My Plans
         </h1>
         <Row>
-          <Col span={9}>
+          <Col span={9} className="dashMaturityCard">
             <Badge.Ribbon text="REGULAR PLAN MATURITY" title="Amazing Deals">
               <Card
                 className="cardHero"
@@ -270,15 +271,15 @@ const DashCard = () => {
           </Col>
         </Row>
         <Row gutter={[24, 24]} style={{ marginTop: "100px" }}>
-          <Col span={18}>
+          <Col span={18} className="dashInvestCard">
             <Card
               title="PORTFOLIO"
               style={{ borderRadius: "7px" }}
-              extra={<a href="#!">GET INVESTMENT LETTER</a>}
+              extra={<a href="#!">GET INVESTMENT</a>}
             >
               <Row>
-                <Col span={12}>
-                  <div style={{ textAlign: "center", margin: "auto" }}>
+                <Col span={12} className="dashInvestItem">
+                  <div style={{ textAlign: "center", marginBottom: "20px" }}>
                     <p
                       style={{
                         fontSize: "14px",
@@ -447,7 +448,7 @@ const DashCard = () => {
               </Row>
             </Card>
           </Col>
-          <Col span={6}>
+          <Col span={6} className="dashAppetiteScore">
             <Row>
               <Col span={24}>
                 <Card
