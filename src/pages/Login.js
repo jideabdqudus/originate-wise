@@ -8,19 +8,10 @@ const Login = () => {
   return (
     <Fragment>
       <div>
-        <div className="container" style={{ position: "relative" }}>
-          <Row
-            style={{
-              margin: "0",
-              transform: "translate(0, 50%)",
-            }}
-          >
-            <Col span={12}>
-              <img
-                src={CW}
-                alt="Cowrywise"
-                style={{ padding: "0", margin: "0" }}
-              />
+        <div className="container">
+          <Row className="loginRow">
+            <Col span={12} className="loginHeading">
+              <img src={CW} alt="Cowrywise" style={{ marginTop: "30px" }} />
               <div>
                 <h1
                   style={{
@@ -45,11 +36,17 @@ const Login = () => {
                 </h1>
               </div>
             </Col>
-            <Col span={12}>
+            <Col span={12} className="loginHeading">
               {" "}
-              <LoginForm />
+              <div >
+                <LoginForm />
+              </div>
               <Row>
-                <Col span={18} style={{ paddingLeft: "10px" }}>
+                <Col
+                  span={18}
+                  style={{ paddingLeft: "10px" }}
+                  className="loginHeading"
+                >
                   <a
                     href="#!"
                     style={{

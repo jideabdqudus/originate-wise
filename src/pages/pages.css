@@ -22,3 +22,25 @@ body {
     width: 1170px;
   }
 }
+
+.loginRow {
+  margin: 0;
+  transform: translate(0, 50%);
+}
+
+.loginHeading {
+  max-width: 50% !important;
+  flex: 0 0 50% !important;
+}
+
+@media screen and (max-width: 600px) {
+  .loginRow {
+    margin: 0 !important;
+    transform: none;
+  }
+  .loginHeading {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+}
