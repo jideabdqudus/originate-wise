@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
+import { Link } from "react-router-dom";
 import "./components.css";
 
 const LoginForm = () => {
@@ -78,9 +79,11 @@ const LoginForm = () => {
             <Col span={8}>
               {" "}
               <Form.Item>
-                <Button type="primary" htmlType="submit" className="myBtn">
-                  Log in
-                </Button>
+                <Link to="/dashboard">
+                  <Button type="primary" htmlType="submit" className="myBtn">
+                    Log in
+                  </Button>
+                </Link>
               </Form.Item>
             </Col>
           </Row>

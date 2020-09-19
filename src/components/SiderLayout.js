@@ -11,14 +11,15 @@ import {
 } from "@ant-design/icons";
 import "./components.css";
 
-import CW from "../assets/cw.svg";
+import { Link } from "react-router-dom";
 import DashCard from "./DashCard";
+import Logo from "../assets/OriginateLogoOriginal.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 class SiderLayout extends React.Component {
   state = {
-    collapsed: false,
+    collapsed: true,
   };
 
   onCollapse = (collapsed) => {
@@ -29,6 +30,7 @@ class SiderLayout extends React.Component {
   render() {
     return (
       <Layout
+      
         style={{ minHeight: "100vh", backgroundColor: "#f4f7fa !important" }}
       >
         <Sider
@@ -43,16 +45,20 @@ class SiderLayout extends React.Component {
             mode="inline"
             style={{ backgroundColor: "#f4f7fa" }}
           >
-            <img
-              src={CW}
-              alt="Logo"
-              style={{
-                marginTop: "70px",
-                textAlign: "center",
-                marginLeft: "20px",
-              }}
-            />
-            <h1 style={{ marginBottom: "20px" }}>Howdy Abdul-Qudus</h1>
+            <Link to="/">
+              <img
+                src={Logo}
+                alt="Logo"
+                height="70px"
+                width="70px"
+                style={{
+                  marginTop: "70px",
+                  textAlign: "center",
+                  marginLeft: "0px",
+                  marginBottom: "40px",
+                }}
+              />
+            </Link>
             <Menu.Item
               key="1"
               icon={

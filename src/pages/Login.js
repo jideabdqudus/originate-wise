@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import LoginForm from "../components/LoginForm";
 import "./pages.css";
 import { Row, Col } from "antd";
-import CW from "../assets/cw.svg";
+import Originate from "../assets/OriginateOrignal.png";
+
 
 const Login = () => {
   return (
@@ -11,7 +12,13 @@ const Login = () => {
         <div className="container">
           <Row className="loginRow">
             <Col span={12} className="loginHeading">
-              <img src={CW} alt="Cowrywise" style={{ marginTop: "30px" }} />
+              <img
+                src={Originate}
+                alt="Cowrywise"
+                height="50px"
+                width="200px"
+                style={{ marginTop: "20px", marginBottom:"30px" }}
+              />
               <div>
                 <h1
                   style={{
