@@ -42,8 +42,12 @@
   margin: 16px;
 }
 
+.site-layout {
+  background: #fff;
+}
 .site-layout .site-layout-background {
   background: #fff;
+  padding: 30px;
 }
 
 .loginForm {
@@ -118,6 +122,17 @@
   }
   .dashAppetiteScore {
     max-width: 100% !important;
-    flex: 0 0 50% !important;
+    flex: 0 0 100% !important;
+  }
+  .site-layout .site-layout-background {
+    background: #fff;
+    padding: 5px;
+  }
+  .cardHero {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px 15px rgba(0, 115, 231, 0.08);
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }

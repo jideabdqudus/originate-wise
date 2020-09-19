@@ -30,7 +30,6 @@ class SiderLayout extends React.Component {
   render() {
     return (
       <Layout
-      
         style={{ minHeight: "100vh", backgroundColor: "#f4f7fa !important" }}
       >
         <Sider
@@ -206,7 +205,7 @@ class SiderLayout extends React.Component {
             <h1 style={{ textAlign: "center", margin: "10px" }}>
               ACCOUNT OVERVIEW
             </h1>
-            <div className="site-layout-background" style={{ padding: 30 }}>
+            <div className="site-layout-background">
               <DashCard />
             </div>
           </Content>
