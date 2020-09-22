@@ -37,6 +37,7 @@ class SiderLayout extends React.Component {
             backgroundColor: "#f4f7fa",
             border: "none",
             position: "fixed",
+            zIndex:"999"
           }}
           collapsible
           collapsed={this.state.collapsed}

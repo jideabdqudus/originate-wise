@@ -1,17 +1,17 @@
 import React from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined, SmileOutlined, LikeOutlined } from "@ant-design/icons";
 
 import { Link } from "react-router-dom";
 import "./components.css";
 
-const LoginForm = () => {
+const NewAccount = () => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
 
   return (
-    <div className="loginForm">
+    <div className="createForm">
       <Card className="cardHero">
         <Form
           name="normal_login"
@@ -20,8 +20,46 @@ const LoginForm = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            name="username"
-            rules={[{ required: true, message: "Please input your Username!" }]}
+            name="firstname"
+            rules={[
+              { required: true, message: "Please input your First Name!" },
+            ]}
+          >
+            <Input
+              style={{
+                height: "50px",
+                borderRadius: "7px",
+                borderColor: "#0066f5",
+                fontSize: "1rem",
+                border: "1px solid rgba(10,46,101,.1)",
+              }}
+              prefix={<SmileOutlined className="site-form-item-icon" />}
+              type="text"
+              placeholder="First Name"
+            />
+          </Form.Item>
+          <Form.Item
+            name="lastname"
+            rules={[
+              { required: true, message: "Please input your Last Name!" },
+            ]}
+          >
+            <Input
+              style={{
+                height: "50px",
+                borderRadius: "7px",
+                borderColor: "#0066f5",
+                fontSize: "1rem",
+                border: "1px solid rgba(10,46,101,.1)",
+              }}
+              prefix={<LikeOutlined className="site-form-item-icon" />}
+              type="text"
+              placeholder="Last Name"
+            />
+          </Form.Item>
+          <Form.Item
+            name="email"
+            rules={[{ required: true, message: "Please input your email!" }]}
           >
             <Input
               style={{
@@ -32,6 +70,7 @@ const LoginForm = () => {
                 border: "1px solid rgba(10,46,101,.1)",
               }}
               prefix={<UserOutlined className="site-form-item-icon" />}
+              type="email"
               placeholder="Email Address"
             />
           </Form.Item>
@@ -53,35 +92,14 @@ const LoginForm = () => {
               placeholder="Password"
             />
           </Form.Item>
-          <Form.Item>
-            <a className="login-form-forgot" href="#!">
-              <b style={{ color: "#0066f5" }}>Forgot Password?</b>
-            </a>
-          </Form.Item>
 
           <Row>
-            <Col span={16}>
-              {" "}
-              <Form.Item>
-                <Link
-                  to="/create"
-                  style={{
-                    color: "grey",
-                    fontSize: ".9rem",
-                    fontWeight: "bold",
-                  }}
-                >
-                  New user?{" "}
-                  <b style={{ color: "#0066f5" }}>Create an account</b>
-                </Link>
-              </Form.Item>
-            </Col>
-            <Col span={8}>
+            <Col span={24}>
               {" "}
               <Form.Item>
                 <Link to="/dashboard">
-                  <Button type="primary" htmlType="submit" className="myBtn">
-                    Log in
+                  <Button type="primary" block htmlType="submit" className="myBtn">
+                    Create Account
                   </Button>
                 </Link>
               </Form.Item>
@@ -93,4 +111,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default NewAccount;

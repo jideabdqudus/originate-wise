@@ -50,6 +50,11 @@
   padding: 30px;
 }
 
+.createForm {
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
 .loginForm {
   max-width: 100% !important;
   flex: 0 0 100% !important;
@@ -92,6 +97,11 @@
 
 @media screen and (max-width: 600px) {
   .loginForm {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .createForm {
     width: 100% !important;
     max-width: 100% !important;
     flex: 0 0 100% !important;
