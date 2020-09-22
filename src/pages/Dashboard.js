@@ -1,5 +1,5 @@
 import React from "react";
-import SiderLayout from "../components/SiderLayout";
+import SiderLayout from "../layout/SiderLayout";
 
 const Dashboard = () => {
   return (

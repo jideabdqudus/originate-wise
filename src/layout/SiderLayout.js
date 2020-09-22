@@ -9,10 +9,10 @@ import {
   WalletOutlined,
   BankOutlined,
 } from "@ant-design/icons";
-import "./components.css";
+import "../components/components.css";
 
 import { Link } from "react-router-dom";
-import DashCard from "./DashCard";
+import DashCard from "../components/DashCard";
 import Logo from "../assets/OriginateLogoOriginal.png";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -23,7 +23,6 @@ class SiderLayout extends React.Component {
   };
 
   onCollapse = (collapsed) => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
 
@@ -37,7 +36,7 @@ class SiderLayout extends React.Component {
             backgroundColor: "#f4f7fa",
             border: "none",
             position: "fixed",
-            zIndex:"999"
+            zIndex: "999",
           }}
           collapsible
           collapsed={this.state.collapsed}
@@ -64,6 +63,7 @@ class SiderLayout extends React.Component {
               />
             </Link>
             <Menu.Item
+            to="/"
               key="1"
               icon={
                 <BankOutlined
