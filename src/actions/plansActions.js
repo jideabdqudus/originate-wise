@@ -1,8 +1,8 @@
 import { ADD_PLAN } from './Types'
 
-export const addPlan = add => {
+export const addPlan = plan => {
   return {
     type: ADD_PLAN,
-    payload: add,
+    payload: plan,
   }
 }

@@ -1,12 +1,12 @@
 import { ADD_PLAN } from "../actions/Types";
 
 const initialState = {
-  posts: [
+  plans: [
     {
       id: 1,
       title: "House Purchase",
       amount: "1212",
-      date: "09/27/2020",
+      date: "2020-09-25",
     },
   ],
 };
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     case ADD_PLAN:
       return {
         ...state,
-        posts: [...state.posts, action.payload],
+        plans: [...state.plans, action.payload],
       };
     default:
       return state;
