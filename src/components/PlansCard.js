@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Card, Badge } from "antd";
+import PlanForm from "./PlanForm";
 
 const PlansCard = () => {
   return (
@@ -60,6 +61,9 @@ const PlansCard = () => {
       >
         Add new Plan
       </h1>
+      <div>
+        <PlanForm/>
+      </div>
     </div>
   );
 };
