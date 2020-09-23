@@ -29,7 +29,7 @@ const PlanForm = () => {
             <Form.Item label="Date">
               <Input
                 placeholder="Date Initalized"
-                type="number"
+                type="date"
                 prefix={<CalendarOutlined className="site-form-item-icon" />}
               />
             </Form.Item>
