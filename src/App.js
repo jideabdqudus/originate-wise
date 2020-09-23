@@ -1,13 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import CreateAccount from "./pages/CreateAccount";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Plans from "./pages/Plans";
+import { Provider } from 'react-redux'
+import store from './store'
 
 const App = () => {
   return (
-    <Fragment>
+    <Provider store={store}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />
@@ -16,7 +18,7 @@ const App = () => {
           <Route exact path="/dashboard/plans" component={Plans} />
         </Switch>
       </BrowserRouter>
-    </Fragment>
+    </Provider>
   );
 };
 export default App;
