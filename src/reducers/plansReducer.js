@@ -9,6 +9,9 @@ const initialState = {
       date: "2020-09-25",
     },
   ],
+  current: null,
+  filtered: null,
+  loading: false,
 };
 
 export default (state = initialState, action) => {

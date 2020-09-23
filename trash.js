@@ -5,22 +5,22 @@ import {
   CreditCardOutlined,
   CalendarOutlined,
 } from "@ant-design/icons";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import { addPlan } from "../actions/plansActions";
-import PlanHistory from "./PlanHistory";
 
-const PlanForm = ({addPlan}) => {
+const PlanForm = () => {
   const [plan, setPlan] = useState({
     title: "",
     amount: "",
     date: "",
   });
 
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
-    addPlan(plan);
     e.preventDefault();
     console.log(plan);
+    dispatch(addPlan(plan));
   };
   const onChange = (e) => {
     setPlan({ ...plan, [e.target.name]: e.target.value });
@@ -28,7 +28,7 @@ const PlanForm = ({addPlan}) => {
   return (
     <Fragment>
       <Row>
-        <Col span={12}>
+        <Col span={6}>
           <Form layout="vertical">
             <Form.Item label="Name of Plan">
               <Input
@@ -64,21 +64,9 @@ const PlanForm = ({addPlan}) => {
             </Form.Item>
           </Form>
         </Col>
-        <Col span={12}>
-            <PlanHistory/>
-        </Col>
       </Row>
     </Fragment>
   );
 };
 
-PlanForm.propTypes = {
-  plans: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  plans: state.plansReducer.plans,
-  loading: state.plansReducer.loading,
-});
-
-export default connect(mapStateToProps, { addPlan })(PlanForm);
+export default PlanForm;
