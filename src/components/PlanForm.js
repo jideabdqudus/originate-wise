@@ -10,20 +10,7 @@ import { connect } from "react-redux";
 import { addPlan } from "../actions/plansActions";
 import PlanHistory from "./PlanHistory";
 
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
-
-const PLANS_QUERY = gql`
-  query plansQuery {
-    plans {
-      title
-      amount
-      date
-    }
-  }
-`;
-
-const PlanForm = ({ addPlan }) => {
+const PlanForm = ({ plan: { plans }, addPlan }) => {
   const [plan, setPlan] = useState({
     title: "",
     amount: "",
@@ -78,20 +65,9 @@ const PlanForm = ({ addPlan }) => {
           </Form>
         </Col>
         <Col span={12}>
-          <Query query={PLANS_QUERY}>
-            {({ loading, error, data }) => {
-              if (loading) return <h4>Loading</h4>;
-              if (error) console.log(error);
-              return (
-                <div>
-                  {" "}
-                  {data.plans.map((plan) => (
-                    <PlanHistory plan={plan} key={plan.id} />
-                  ))}
-                </div>
-              );
-            }}
-          </Query>
+          {plans.map((plan) => (
+            <h1>{plan.title}</h1>
+          ))}
         </Col>
       </Row>
     </Fragment>
@@ -99,12 +75,11 @@ const PlanForm = ({ addPlan }) => {
 };
 
 PlanForm.propTypes = {
-  plans: PropTypes.object.isRequired,
+  plan: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  plans: state.plansReducer.plans,
-  loading: state.plansReducer.loading,
+  plan: state.plansReducer,
 });
 
 export default connect(mapStateToProps, { addPlan })(PlanForm);

@@ -2,13 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { addPlan } from "../actions/plansActions";
 
-const PlanHistory = ({ plan }) => {
+const PlanHistory = ({ plans }) => {
   return (
     <div>
-      <div key={plan.title}>
-        <h1>{plan.title}</h1>
-        <h1>{plan.amount}</h1>
-        <h1>{plan.date}</h1>
+      <div key={plans.title}>
+        <h1>{plans.title}</h1>
+        <h1>{plans.amount}</h1>
+        <h1>{plans.date}</h1>
       </div>
     </div>
   );
