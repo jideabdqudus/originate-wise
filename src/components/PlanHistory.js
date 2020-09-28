@@ -52,6 +52,7 @@ const PlanHistory = ({ plan }) => {
         </Col>
         <hr />
         <Modal
+          centered
           visible={visible}
           onOk={handleOk}
           onCancel={handleCancel}
@@ -83,30 +84,56 @@ const PlanHistory = ({ plan }) => {
             </Col>
             <Col span={24}>
               <Row>
-                <Col span={12}>
-                  <p>Amount</p>
-                  <p>
-                    {" "}
+                <Col span={12} style={{ marginBottom: "30px" }}>
+                  <p style={{ margin: 0, color: "gray" }}>Amount</p>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      color: "#0a2e65",
+                      margin: 0,
+                    }}
+                  >
+                    ₦{" "}
                     {`${plan.amount}`
                       .toString()
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                   </p>
                 </Col>
                 <Col span={12}>
-                  <p>Reference</p>
-                  <p>{plan.id}</p>
+                  <p style={{ margin: 0, color: "gray" }}>Reference</p>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      color: "#0a2e65",
+                      margin: 0,
+                    }}
+                  >
+                    {plan.id}
+                  </p>
                 </Col>
               </Row>
             </Col>
             <Col span={24}>
               <Row>
                 <Col span={12}>
-                  <p>Status</p>
-                  <CheckCircleTwoTone twoToneColor="#52c41a" />
+                  <p style={{ margin: 0, color: "gray" }}>Status</p>
+                  <CheckCircleTwoTone
+                    twoToneColor="#52c41a"
+                    style={{ fontSize: "30px" }}
+                  />
                 </Col>
                 <Col span={12}>
-                  <p>Debit Card</p>
-                  <span>
+                  <p style={{ margin: 0, color: "gray" }}>Debit Card</p>
+                  <span
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      color: "#0a2e65",
+                      margin: 0,
+                    }}
+                  >
                     6716{" "}
                     <img
                       src={mastercard}
