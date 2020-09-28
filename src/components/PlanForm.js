@@ -11,7 +11,6 @@ import { addPlan } from "../actions/plansActions";
 import PlanHistory from "./PlanHistory";
 import "./components.css";
 
-
 const PlanForm = ({ plan: { plans }, addPlan }) => {
   const [plan, setPlan] = useState({
     title: "",
@@ -87,6 +86,11 @@ const PlanForm = ({ plan: { plans }, addPlan }) => {
               </Button>
             </Form.Item>
           </Form>
+        </Col>
+        <Col span={16}>
+          {plans.map((plan) => (
+            <PlanHistory plan={plan} />
+          ))}
         </Col>
       </Row>
     </Fragment>

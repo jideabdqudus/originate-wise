@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Card, Badge } from "antd";
 import PlanForm from "./PlanForm";
+import PlanHistory from "./PlanHistory";
 
 const PlansCard = () => {
   return (

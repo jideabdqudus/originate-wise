@@ -211,3 +211,172 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { addPlan })(PlanForm);
+
+
+
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addPlan } from "../actions/plansActions";
+import { Modal, Button, Row, Col } from "antd";
+import SavingsImg from "../assets/savingstime.svg";
+
+const PlanHistory = ({ plan }) => {
+  const [visible, setVisible] = useState(false);
+
+  const showModal = () => {
+    setVisible(true);
+  };
+
+  const handleOk = (e) => {
+    setVisible(true);
+  };
+
+  const handleCancel = (e) => {
+    setVisible(false);
+  };
+  return (
+    <div onClick={showModal}>
+      <Row>
+        <Col span={2}>
+          <img
+            src={SavingsImg}
+            alt="Savings"
+            height="50"
+            style={{ display: "block !important" }}
+          />
+        </Col>
+        <Col span={18}>
+          <p
+            style={{
+              color: "#0a2e65",
+              fontWeight: "700",
+              fontSize: "20px",
+              margin: "0px",
+            }}
+          >
+            {plan.title}
+          </p>
+          <p style={{ color: "gray", fontWeight: "normal" }}>{plan.desc}</p>
+        </Col>
+        <Col span={4}>
+          <span
+            style={{ color: "#0a2e65", fontSize: "20px", fontWeight: "700" }}
+          >
+            ₦ 2,000
+          </span>
+        </Col>
+        <Modal
+          title="Basic Modal"
+          visible={visible}
+          onOk={()=>setVisible(false)}
+          footer={[
+            <Button type="primary" key="back" onClick={()=>setVisible(false)}>
+              Close
+            </Button>,
+          ]}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </Row>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  plans: state.plansReducer.plans,
+});
+
+export default connect(mapStateToProps, { addPlan })(PlanHistory);
+
+
+
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addPlan } from "../actions/plansActions";
+import { Modal, Button, Row, Col } from "antd";
+import SavingsImg from "../assets/savingstime.svg";
+
+export class PlanHistory extends Component {
+  state = { visible: false };
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Row>
+          <Col span={2}>
+            <img
+              src={SavingsImg}
+              alt="Savings"
+              height="50"
+              style={{ display: "block !important" }}
+            />
+          </Col>
+          <Col span={18}>
+            <p
+              style={{
+                color: "#0a2e65",
+                fontWeight: "700",
+                fontSize: "20px",
+                margin: "0px",
+              }}
+            >
+              {this.props.plan.title}
+            </p>
+            <p style={{ color: "gray", fontWeight: "normal" }}>
+              {this.props.plan.desc}
+            </p>
+          </Col>
+          <Col span={4}>
+            <span
+              style={{ color: "#0a2e65", fontSize: "20px", fontWeight: "700" }}
+            >
+              ₦ {this.props.plan.amount}
+            </span>
+          </Col>
+          <Button type="primary" onClick={this.showModal}>
+            Open Modal
+          </Button>
+          <Modal
+          maskClosable={true}
+            title="Basic Modal"
+            visible={this.state.visible}
+            onOk={this.handleOk}
+            onCancel={this.handleCancel}
+          >
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Modal>
+        </Row>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({
+  plans: state.plansReducer.plans,
+});
+
+export default connect(mapStateToProps, { addPlan })(PlanHistory);
