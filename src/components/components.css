@@ -90,6 +90,31 @@
   flex: 0 0 50% !important;
 }
 
+.planFormInput {
+  transition: border-color 0.3s ease-in, color 1s linear;
+  width: 100%;
+  height: 56px;
+  background-color: transparent;
+  border-radius: 4px;
+  outline: none;
+  color: #0a2e65;
+  border: 1px solid rgba(10, 46, 101, 0.1);
+  font-family: CW BR Firma, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-size: 0.95rem;
+  font-size: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.planText{
+  font-size: 3rem;
+  color: #0a2e65;
+  margin-right: 40px;
+}
+
 .dashAppetiteScore {
   max-width: 100% !important;
   flex: 0 0 25% !important;

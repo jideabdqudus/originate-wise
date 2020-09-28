@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPlan } from "../actions/plansActions";
 import PlanHistory from "./PlanHistory";
+import "./components.css";
 
 const PlanForm = ({ plan: { plans }, addPlan }) => {
   const [plan, setPlan] = useState({
@@ -28,11 +29,13 @@ const PlanForm = ({ plan: { plans }, addPlan }) => {
   return (
     <Fragment>
       <Row>
-        <Col span={12}>
+        <Col span={8}>
           <Form layout="vertical">
-            <Form.Item label="Name of Plan">
+            <h3 className="planText">What are you saving for?</h3>{" "}
+            <Form.Item extra="Examples: My house, Masters at UCLA.">
               <Input
-                placeholder="Name of Plan"
+                className="planFormInput"
+                placeholder="Enter Plan name"
                 type="text"
                 name="title"
                 onChange={onChange}
@@ -63,11 +66,6 @@ const PlanForm = ({ plan: { plans }, addPlan }) => {
               </Button>
             </Form.Item>
           </Form>
-        </Col>
-        <Col span={12}>
-          {plans.map((plan) => (
-            <h1>{plan.title}</h1>
-          ))}
         </Col>
       </Row>
     </Fragment>

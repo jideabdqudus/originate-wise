@@ -5,7 +5,7 @@ const initialState = {
     {
       title: "Buy House",
       amount: "1211212",
-      date: "1212112",
+      date: "121",
     },
   ],
   current: null,

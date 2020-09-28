@@ -1,4 +1,5 @@
-import { ADD_PLAN, SET_LOADING } from "./Types";
+import { ADD_PLAN, GET_PLAN} from "./Types";
+
 
 
 export const addPlan = (plan) => {
