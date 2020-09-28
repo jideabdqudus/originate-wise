@@ -17,9 +17,8 @@ const PlanForm = ({ addPlan }) => {
     desc: "",
   });
 
-  const onFinish = (e) => {
+  const onFinish = () => {
     addPlan(plan);
-    setPlan({  [e.target.name]: "" });
   };
   const onChange = (e) => {
     setPlan({ ...plan, [e.target.name]: e.target.value });

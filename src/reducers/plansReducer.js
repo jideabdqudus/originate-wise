@@ -1,4 +1,4 @@
-import { ADD_PLAN } from "../actions/Types";
+import { ADD_PLAN, GET_PLAN } from "../actions/Types";
 
 const initialState = {
   plans: [
@@ -17,6 +17,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case GET_PLAN:
+      return {
+        ...state,
+        plans: action.payload,
+        loading: false,
+      };
     case ADD_PLAN:
       return {
         ...state,
