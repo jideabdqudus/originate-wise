@@ -118,7 +118,7 @@ class SiderLayout2 extends React.Component {
                 marginBottom: "20px",
               }}
             >
-              History
+              <Link to="/dashboard/history">History</Link>
             </Menu.Item>
             <Menu.Item
               key="4"

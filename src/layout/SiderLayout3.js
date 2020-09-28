@@ -12,12 +12,12 @@ import {
 import "../components/components.css";
 
 import { Link } from "react-router-dom";
-import DashCard from "../components/DashCard";
 import Logo from "../assets/OriginateLogoOriginal.png";
+import PlanHistory from "../components/PlanHistory";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-class SiderLayout extends React.Component {
+class SiderLayout3 extends React.Component {
   state = {
     collapsed: true,
   };
@@ -63,8 +63,7 @@ class SiderLayout extends React.Component {
               />
             </Link>
             <Menu.Item
-              to="/"
-              key="1"
+              key="2"
               icon={
                 <BankOutlined
                   style={{
@@ -83,7 +82,7 @@ class SiderLayout extends React.Component {
               <Link to="/dashboard">Home</Link>
             </Menu.Item>
             <Menu.Item
-              key="2"
+              key="3"
               icon={
                 <BookOutlined
                   style={{
@@ -103,7 +102,7 @@ class SiderLayout extends React.Component {
               <Link to="/dashboard/plans">Plans</Link>
             </Menu.Item>
             <Menu.Item
-              key="3"
+              key="1"
               icon={
                 <DatabaseOutlined
                   style={{
@@ -220,7 +219,7 @@ class SiderLayout extends React.Component {
               className="site-layout-background"
               style={{ marginLeft: "80px" }}
             >
-              <DashCard />
+              <PlanHistory />
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
@@ -232,4 +231,4 @@ class SiderLayout extends React.Component {
   }
 }
 
-export default SiderLayout;
+export default SiderLayout3;

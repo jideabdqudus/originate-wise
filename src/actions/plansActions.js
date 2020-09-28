@@ -1,4 +1,4 @@
-import { ADD_PLAN, GET_PLAN} from "./Types";
+import { ADD_PLAN} from "./Types";
 
 
 

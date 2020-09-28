@@ -8,19 +8,18 @@ import {
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPlan } from "../actions/plansActions";
-import PlanHistory from "./PlanHistory";
 import "./components.css";
 
-const PlanForm = ({ plan: { plans }, addPlan }) => {
+const PlanForm = ({ addPlan }) => {
   const [plan, setPlan] = useState({
     title: "",
     amount: "",
     desc: "",
   });
 
-  const onFinish = () => {
+  const onFinish = (e) => {
     addPlan(plan);
-    console.log(plan);
+    setPlan({  [e.target.name]: "" });
   };
   const onChange = (e) => {
     setPlan({ ...plan, [e.target.name]: e.target.value });
@@ -86,11 +85,6 @@ const PlanForm = ({ plan: { plans }, addPlan }) => {
               </Button>
             </Form.Item>
           </Form>
-        </Col>
-        <Col span={16}>
-          {plans.map((plan) => (
-            <PlanHistory plan={plan} />
-          ))}
         </Col>
       </Row>
     </Fragment>
