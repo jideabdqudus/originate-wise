@@ -1,7 +1,9 @@
 import api from "../utils/api";
 import { ADD_PLAN, GET_PLAN, PLAN_ERROR } from "./Types";
+import setAuthToken from "../utils/setAuthToken";
 
 export const getPlan = () => async (dispatch) => {
+  setAuthToken(localStorage.token);
   try {
     const res = await api.get("/plans");
     dispatch({
@@ -12,9 +14,11 @@ export const getPlan = () => async (dispatch) => {
     dispatch({
       type: PLAN_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
+     
     });
   }
 };
+
 
 export const addPlan = (plan) => {
   return {

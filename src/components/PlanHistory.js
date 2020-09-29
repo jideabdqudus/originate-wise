@@ -16,6 +16,7 @@ const PlanHistory = ({getPlan, plans:{plans, loading} }) => {
     // eslint-disable-next-line
   }, []);
 
+
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
@@ -29,6 +30,10 @@ const PlanHistory = ({getPlan, plans:{plans, loading} }) => {
   const handleCancel = (e) => {
     setVisible(false);
   };
+
+  if (plans !== null && plans.length === 0 && !loading) {
+    return <h4>Please add a plan</h4>;
+  }
 
   return (
     <div style={{ cursor: "pointer" }}>
