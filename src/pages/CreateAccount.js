@@ -3,12 +3,8 @@ import "./pages.css";
 import { Row, Col } from "antd";
 import Originate from "../assets/OriginateOrignal.png";
 import NewAccount from "../components/NewAccount";
-import { connect } from "react-redux";
-import { loadUser } from "../actions/authActions";
 
-const CreateAccount = ({
-  create: { token, isAuthenticated, loadimg, user, error },
-}) => {
+const CreateAccount = () => {
   return (
     <Fragment>
       <div>
@@ -59,8 +55,4 @@ const CreateAccount = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  create: state.authReducer,
-});
-
-export default connect(mapStateToProps)(CreateAccount);
+export default CreateAccount;

@@ -1,17 +1,20 @@
-import axios from "axios";
+import api from "../utils/api";
 import { ADD_PLAN, GET_PLAN, PLAN_ERROR } from "./Types";
 
-//Get Contacts
-// const getPlan = async (dispatch) => {
-//   try {
-//     const res = await axios.get("/api/plans");
-//     dispatch({ type: GET_PLAN, payload: res.data });
-//   } catch (error) {
-//     dispatch({ type: PLAN_ERROR, payload: error.response.msg });
-//   }
-// };
-
-
+export const getPlan = () => async (dispatch) => {
+  try {
+    const res = await api.get("/plans");
+    dispatch({
+      type: GET_PLAN,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PLAN_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
 
 export const addPlan = (plan) => {
   return {

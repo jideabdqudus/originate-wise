@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { addPlan } from "../actions/plansActions";
+import { addPlan, getPlan } from "../actions/plansActions";
 import { Modal, Row, Col } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
 import SavingsImg from "../assets/savingstime.svg";
 import mastercard from "../assets/mastercard.svg";
+import PropTypes from 'prop-types';
 
-const PlanHistory = ({ plans }) => {
+const PlanHistory = ({getPlan, plans:{plans, loading} }) => {
+
+  
+  useEffect(() => {
+    getPlan();
+    console.log(getPlan)
+    // eslint-disable-next-line
+  }, []);
+
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
@@ -154,8 +163,13 @@ const PlanHistory = ({ plans }) => {
   );
 };
 
+PlanHistory.propTypes = {
+  getPost: PropTypes.func.isRequired,
+  plans: PropTypes.object.isRequired
+};
+
 const mapStateToProps = (state) => ({
-  plans: state.plansReducer.plans,
+  plans: state.plansReducer
 });
 
-export default connect(mapStateToProps, { addPlan })(PlanHistory);
+export default connect(mapStateToProps, { addPlan, getPlan })(PlanHistory);

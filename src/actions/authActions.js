@@ -1,3 +1,4 @@
+import api from "../utils/api";
 import axios from "axios";
 import {
   REGISTER_SUCCESS,
@@ -9,66 +10,81 @@ import {
   LOGIN_FAIL,
   LOGOUT,
 } from "./Types";
+import setAuthToken from "../utils/setAuthToken";
+import { setAlert } from "./alertActions";
 
-//Load User
-export const loadUser = async () => {
+// Load User
+export const loadUser = () => async (dispatch) => {
   setAuthToken(localStorage.token);
-
   try {
-    const res = await axios.get("/api/auth");
+    const res = await api.get("/auth");
 
-    dispatch({ type: USER_LOADED, payload: res.data });
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data,
+    });
   } catch (err) {
-    dispatch({ type: AUTH_ERROR });
+    dispatch({
+      type: AUTH_ERROR,
+    });
   }
 };
 
-//Register User
-export const register = async (formData) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+// Register User
+export const register = (formData) => async (dispatch) => {
   try {
-    const res = await axios.post("/api/users", formData, config);
+    const res = await api.post("/users", formData);
 
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
-    loadUser();
-  } catch (error) {
-    dispatch({ type: REGISTER_FAIL, payload: error.response.data.msg });
+    dispatch(loadUser());
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+    console.log(errors);
+    dispatch({
+      type: REGISTER_FAIL,
+    });
   }
 };
 
-//Login User
-export const login = async (formData) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+// Login User
+export const login = (email, password) => async (dispatch) => {
+  const body = { email, password };
+
   try {
-    const res = await axios.post("/api/auth", formData, config);
+    const res = await api.post("/auth", body);
 
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
-    loadUser();
-  } catch (error) {
-    dispatch({ type: LOGIN_FAIL, payload: error.response.data.msg });
+
+    dispatch(loadUser());
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: LOGIN_FAIL,
+    });
   }
 };
 
 //Logout
-export const logout = () => {
+export const logout = () => async (dispatch) => {
   dispatch({ type: LOGOUT });
 };
 
 //Clear errors
-export const clearErrors = () => {
+export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

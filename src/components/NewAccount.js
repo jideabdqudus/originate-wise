@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
-import { UserOutlined, LockOutlined, SmileOutlined, LikeOutlined } from "@ant-design/icons";
-
-import { Link } from "react-router-dom";
+import {
+  UserOutlined,
+  LockOutlined,
+  SmileOutlined,
+  LikeOutlined,
+} from "@ant-design/icons";
 import "./components.css";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { register } from "../actions/authActions";
+import { setAlert } from "../actions/alertActions";
+import PropTypes from "prop-types";
 
-const NewAccount = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+const NewAccount = ({ isAuthenticated, register, setAlert }) => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const { firstname, lastname, email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const onFinish = async (e) => {
+    if (firstname === "" || lastname === "" || email === "") {
+      setAlert("Passwords do not match", "danger");
+    } else {
+      register({ firstname, lastname, email, password });
+    }
+  };
+
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="createForm">
@@ -20,7 +49,6 @@ const NewAccount = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            name="firstname"
             rules={[
               { required: true, message: "Please input your First Name!" },
             ]}
@@ -35,11 +63,14 @@ const NewAccount = () => {
               }}
               prefix={<SmileOutlined className="site-form-item-icon" />}
               type="text"
+              required="true"
+              value={firstname}
+              name="firstname"
+              onChange={onChange}
               placeholder="First Name"
             />
           </Form.Item>
           <Form.Item
-            name="lastname"
             rules={[
               { required: true, message: "Please input your Last Name!" },
             ]}
@@ -54,11 +85,14 @@ const NewAccount = () => {
               }}
               prefix={<LikeOutlined className="site-form-item-icon" />}
               type="text"
+              required="true"
+              value={lastname}
+              onChange={onChange}
+              name="lastname"
               placeholder="Last Name"
             />
           </Form.Item>
           <Form.Item
-            name="email"
             rules={[{ required: true, message: "Please input your email!" }]}
           >
             <Input
@@ -71,13 +105,17 @@ const NewAccount = () => {
               }}
               prefix={<UserOutlined className="site-form-item-icon" />}
               type="email"
+              required="true"
+              name="email"
+              onChange={onChange}
+              value={email}
               placeholder="Email Address"
             />
           </Form.Item>
           <Form.Item
             name="password"
             style={{ color: "#0066f5" }}
-            rules={[{ required: true }]}
+            rules={[{ required: true, len: 8 }]}
           >
             <Input
               style={{
@@ -89,6 +127,10 @@ const NewAccount = () => {
               }}
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
+              name="password"
+              required="true"
+              value={password}
+              onChange={onChange}
               placeholder="Password"
             />
           </Form.Item>
@@ -97,11 +139,14 @@ const NewAccount = () => {
             <Col span={24}>
               {" "}
               <Form.Item>
-                <Link to="/dashboard">
-                  <Button type="primary" block htmlType="submit" className="myBtn">
-                    Create Account
-                  </Button>
-                </Link>
+                <Button
+                  type="primary"
+                  block
+                  htmlType="submit"
+                  className="myBtn"
+                >
+                  Create Account
+                </Button>
               </Form.Item>
             </Col>
           </Row>
@@ -111,4 +156,14 @@ const NewAccount = () => {
   );
 };
 
-export default NewAccount;
+NewAccount.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.authReducer.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { register, setAlert })(NewAccount);

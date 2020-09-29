@@ -1,15 +1,7 @@
 import { ADD_PLAN, GET_PLAN } from "../actions/Types";
 
 const initialState = {
-  plans: [
-    {
-      id: "000001",
-      title: "Buy House",
-      amount: "1211212",
-      desc: "Mowe Ibafo",
-      date: Date(),
-    },
-  ],
+  plans: [],
   current: null,
   filtered: null,
   loading: false,
