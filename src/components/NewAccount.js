@@ -30,7 +30,7 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
 
   const onFinish = async (e) => {
     if (firstname === "" || lastname === "" || email === "") {
-      setAlert("Passwords do not match", "danger");
+      setAlert("Wrong Input", "error");
     } else {
       register({ firstname, lastname, email, password });
     }
