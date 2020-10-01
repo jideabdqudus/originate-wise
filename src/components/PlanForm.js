@@ -11,17 +11,17 @@ import { addPlan } from "../actions/plansActions";
 import "./components.css";
 
 const PlanForm = ({ addPlan }) => {
-  const [plan, setPlan] = useState({
+  const [formData, setFormData] = useState({
     title: "",
     amount: "",
     desc: "",
   });
 
   const onFinish = () => {
-    addPlan(plan);
+    addPlan(formData);
   };
   const onChange = (e) => {
-    setPlan({ ...plan, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
     <Fragment>

@@ -10,19 +10,31 @@ export const getPlan = () => async (dispatch) => {
       type: GET_PLAN,
       payload: res.data,
     });
+    console.log("Get Plan Successful");
   } catch (err) {
     dispatch({
       type: PLAN_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
-     
     });
+    console.log("Get Plan NOT Successful");
   }
 };
 
+// Add post
+export const addPlan = (formData) => async (dispatch) => {
+  setAuthToken(localStorage.token);
+  try {
+    const res = await api.post("/plans", formData);
 
-export const addPlan = (plan) => {
-  return {
-    type: ADD_PLAN,
-    payload: plan,
-  };
+    dispatch({
+      type: ADD_PLAN,
+      payload: res.data,
+    });
+    console.log("Successful");
+  } catch (err) {
+    dispatch({
+      type: PLAN_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
 };

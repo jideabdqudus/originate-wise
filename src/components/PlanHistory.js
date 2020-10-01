@@ -5,17 +5,14 @@ import { Modal, Row, Col } from "antd";
 import { CheckCircleTwoTone } from "@ant-design/icons";
 import SavingsImg from "../assets/savingstime.svg";
 import mastercard from "../assets/mastercard.svg";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const PlanHistory = ({getPlan, plans:{plans, loading} }) => {
-
-  
+const PlanHistory = ({ getPlan, plans: { plans, loading } }) => {
   useEffect(() => {
     getPlan();
-    console.log(getPlan)
+    console.log(plans);
     // eslint-disable-next-line
   }, []);
-
 
   const [visible, setVisible] = useState(false);
 
@@ -170,11 +167,11 @@ const PlanHistory = ({getPlan, plans:{plans, loading} }) => {
 
 PlanHistory.propTypes = {
   getPost: PropTypes.func.isRequired,
-  plans: PropTypes.object.isRequired
+  plans: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  plans: state.plansReducer
+  plans: state.plansReducer,
 });
 
 export default connect(mapStateToProps, { addPlan, getPlan })(PlanHistory);

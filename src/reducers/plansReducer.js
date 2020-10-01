@@ -18,7 +18,8 @@ export default (state = initialState, action) => {
     case ADD_PLAN:
       return {
         ...state,
-        plans: [...state.plans, action.payload],
+        plans: [action.payload, ...state.plans],
+        loading: false,
       };
     default:
       return state;
