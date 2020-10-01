@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { register } from "../actions/authActions";
 import { setAlert } from "../actions/alertActions";
 import PropTypes from "prop-types";
+import AlertInfo from "../layout/AlertInfo"
 
 const NewAccount = ({ isAuthenticated, register, setAlert }) => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,7 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
 
   return (
     <div className="createForm">
+    <AlertInfo/>
       <Card className="cardHero">
         <Form
           name="normal_login"

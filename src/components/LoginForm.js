@@ -7,6 +7,7 @@ import { login } from "../actions/authActions";
 import { setAlert } from "../actions/alertActions";
 import PropTypes from "prop-types";
 import "./components.css";
+import AlertInfo from "../layout/AlertInfo";
 
 const LoginForm = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -30,6 +31,7 @@ const LoginForm = ({ login, isAuthenticated }) => {
 
   return (
     <div className="loginForm">
+      <AlertInfo />
       <Card className="cardHero">
         <Form
           name="normal_login"
