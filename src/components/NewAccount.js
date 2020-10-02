@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import {
   UserOutlined,
@@ -30,9 +30,14 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
 
   const onFinish = async () => {
     if (firstname === "" || lastname === "" || email === "") {
-      setAlert("Wrong Input", "error");
+      setAlert("Fields can not be empty", "error");
+    } else if (password.length < 8) {
+      setAlert("Password has to be longer than that", "warning");
+    } else if (lastname === "") {
+      setAlert("I need your last name", "warning");
     } else {
-      register({ firstname, lastname, email, password });
+      setAlert("Just Perfect", "success");
+      register(firstname, lastname, email, password);
     }
   };
 
@@ -65,7 +70,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               }}
               prefix={<SmileOutlined className="site-form-item-icon" />}
               type="text"
-              required="true"
               value={firstname}
               name="firstname"
               onChange={onChange}
@@ -87,7 +91,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               }}
               prefix={<LikeOutlined className="site-form-item-icon" />}
               type="text"
-              required="true"
               value={lastname}
               onChange={onChange}
               name="lastname"
@@ -107,18 +110,13 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               }}
               prefix={<UserOutlined className="site-form-item-icon" />}
               type="email"
-              required="true"
               name="email"
               onChange={onChange}
               value={email}
               placeholder="Email Address"
             />
           </Form.Item>
-          <Form.Item
-            name="password"
-            style={{ color: "#0066f5" }}
-            rules={[{ required: true, len: 8 }]}
-          >
+          <Form.Item name="password" style={{ color: "#0066f5" }}>
             <Input
               style={{
                 height: "50px",
@@ -130,7 +128,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               name="password"
-              required="true"
               value={password}
               onChange={onChange}
               placeholder="Password"

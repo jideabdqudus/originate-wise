@@ -1,5 +1,4 @@
 import api from "../utils/api";
-import axios from "axios";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -41,14 +40,9 @@ export const register = (formData) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-    }
-    console.log(errors);
     dispatch({
       type: REGISTER_FAIL,
+      payload: err.response.data.msg,
     });
   }
 };
@@ -68,14 +62,9 @@ export const login = (email, password) => async (dispatch) => {
     dispatch(loadUser());
     console.log("Login Successful");
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-    }
-
     dispatch({
       type: LOGIN_FAIL,
+      payload: err.response.data.msg,
     });
   }
 };

@@ -3,13 +3,13 @@ import { Form, Input, Button, Row, Col, Card } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { login } from "../actions/authActions";
+import { login, clearErrors } from "../actions/authActions";
 import { setAlert } from "../actions/alertActions";
 import PropTypes from "prop-types";
 import "./components.css";
 import AlertInfo from "../layout/AlertInfo";
 
-const LoginForm = ({ login, isAuthenticated, setAlert }) => {
+const LoginForm = ({ login, isAuthenticated, setAlert, error }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,10 +22,13 @@ const LoginForm = ({ login, isAuthenticated, setAlert }) => {
   };
 
   const onFinish = async () => {
-    if (email === "" || password === "") {
-      setAlert("Wrong Input", "error");
+    if (email === "") {
+      setAlert("Email Can't be left empty", "error");
+    } else if (password === "") {
+      setAlert("Is your password correct?", "warning");
+    } else {
+      login(email, password);
     }
-    login(email, password);
   };
 
   if (isAuthenticated) {
@@ -126,4 +129,6 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.authReducer.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login, setAlert })(LoginForm);
+export default connect(mapStateToProps, { login, setAlert, clearErrors })(
+  LoginForm
+);
