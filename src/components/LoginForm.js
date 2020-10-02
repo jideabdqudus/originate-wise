@@ -6,15 +6,16 @@ import "./components.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setAlert } from "../actions/alertActions";
-import { register, login, clearErrors } from "../actions/authActions";
+import { login, clearErrors } from "../actions/authActions";
 import { Redirect } from "react-router";
+import AlertInfo from "../layout/AlertInfo";
 
 const LoginForm = (
   { setAlert, error, login, isAuthenticated, clearErrors },
   props
 ) => {
   useEffect(() => {
-    if (error === "User already exists") {
+    if (error === "Invalid Credentials") {
       setAlert(error, "error");
       clearErrors();
     } //eslint-disable-next-line
@@ -31,10 +32,19 @@ const LoginForm = (
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const onFinish = async () => {
-    console.log("Submitted");
+    if (email === "") {
+      setAlert("Please enter all fields", "error");
+    } else {
+      login(formData);
+    }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <div className="loginForm">
+      <AlertInfo />
       <Card className="cardHero">
         <Form
           name="normal_login"
