@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import {
   UserOutlined,
@@ -11,9 +11,17 @@ import AlertInfo from "../layout/AlertInfo";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setAlert } from "../actions/alertActions";
-import {register} from "../actions/authActions"
+import { register, clearErrors } from "../actions/authActions";
+import authReducer from "../reducers/authReducer";
 
-const NewAccount = ({ setAlert, auth, register }) => {
+const NewAccount = ({ setAlert, auth, register, clearErrors }) => {
+  useEffect(() => {
+    if (auth.error === "User already exists") {
+      setAlert(auth.error, "error");
+      clearErrors();
+    }
+  }, [auth.error]);
+
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -32,7 +40,7 @@ const NewAccount = ({ setAlert, auth, register }) => {
     } else if (password.length < 8) {
       setAlert("Password must be more than 8 characters", "warning");
     } else {
-      register(formData)
+      register(formData);
     }
   };
 
@@ -151,7 +159,9 @@ NewAccount.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
- 
+  auth: state.authReducer,
 });
 
-export default connect(mapStateToProps, { setAlert, register })(NewAccount);
+export default connect(mapStateToProps, { setAlert, register, clearErrors })(
+  NewAccount
+);
