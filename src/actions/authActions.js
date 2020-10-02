@@ -53,6 +53,31 @@ export const register = (formData) => async (dispatch) => {
   }
 };
 
+// Login User
+
+export const login = (formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await axios.post("/api/auth", formData, config);
+
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+    });
+    loadUser();
+  } catch (error) {
+    dispatch({
+      type: LOGIN_FAIL,
+      payload: error.response.data.msg,
+    });
+  }
+};
+
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

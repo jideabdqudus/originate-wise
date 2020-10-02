@@ -1,16 +1,31 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./components.css";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { setAlert } from "../actions/alertActions";
+import { register, login, clearErrors } from "../actions/authActions";
+import { Redirect } from "react-router";
 
-const LoginForm = () => {
+const LoginForm = (
+  { setAlert, error, login, isAuthenticated, clearErrors },
+  props
+) => {
+  useEffect(() => {
+    if (error === "User already exists") {
+      setAlert(error, "error");
+      clearErrors();
+    } //eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const {  email, password } = formData;
+  const { email, password } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -101,4 +116,17 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+LoginForm.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  error: state.authReducer.error,
+  isAuthenticated: state.authReducer.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, login, clearErrors })(
+  LoginForm
+);

@@ -1,14 +1,14 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import SiderLayout from "../layout/SiderLayout";
 import { connect } from "react-redux";
-import PropTypes from 'prop-types'
-import {loadUser} from "../actions/authActions"
+import PropTypes from "prop-types";
+import { loadUser } from "../actions/authActions";
 
-const Dashboard = ({loadUser}) => {
+const Dashboard = ({ loadUser }) => {
   useEffect(() => {
-    loadUser()
+    loadUser();
     //eslint-disable-next-line
-  }, [])
+  }, []);
   return (
     <div>
       <SiderLayout />
@@ -16,12 +16,8 @@ const Dashboard = ({loadUser}) => {
   );
 };
 
-Dashboard.propTypes ={
+Dashboard.propTypes = {
   loadUser: PropTypes.func.isRequired,
-}
+};
 
-const mapStateToProps = ({
-  
-})
-
-export default connect(mapStateToProps, {loadUser})(Dashboard);
+export default connect(null, { loadUser })(Dashboard);
