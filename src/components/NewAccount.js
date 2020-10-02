@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import { register } from "../actions/authActions";
 import { setAlert } from "../actions/alertActions";
 import PropTypes from "prop-types";
-import AlertInfo from "../layout/AlertInfo"
+import AlertInfo from "../layout/AlertInfo";
 
 const NewAccount = ({ isAuthenticated, register, setAlert }) => {
   const [formData, setFormData] = useState({
@@ -28,7 +28,7 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onFinish = async (e) => {
+  const onFinish = async () => {
     if (firstname === "" || lastname === "" || email === "") {
       setAlert("Wrong Input", "error");
     } else {
@@ -37,12 +37,12 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/" />;
+    return <Redirect to="/dashboard" />;
   }
 
   return (
     <div className="createForm">
-    <AlertInfo/>
+      <AlertInfo />
       <Card className="cardHero">
         <Form
           name="normal_login"

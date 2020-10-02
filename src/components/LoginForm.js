@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import "./components.css";
 import AlertInfo from "../layout/AlertInfo";
 
-const LoginForm = ({ login, isAuthenticated }) => {
+const LoginForm = ({ login, isAuthenticated, setAlert }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,6 +22,9 @@ const LoginForm = ({ login, isAuthenticated }) => {
   };
 
   const onFinish = async () => {
+    if (email === "" || password === "") {
+      setAlert("Wrong Input", "error");
+    }
     login(email, password);
   };
 
@@ -115,6 +118,7 @@ const LoginForm = ({ login, isAuthenticated }) => {
 
 LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 };
 
@@ -122,4 +126,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.authReducer.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login })(LoginForm);
+export default connect(mapStateToProps, { login, setAlert })(LoginForm);
