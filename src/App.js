@@ -7,6 +7,11 @@ import Plans from "./pages/Plans";
 import { Provider } from "react-redux";
 import store from "./store";
 import History from "./pages/History";
+import setAuthToken from "./utils/setAuthToken";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (

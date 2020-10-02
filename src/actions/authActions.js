@@ -9,8 +9,24 @@ import {
   LOGOUT,
 } from "./Types";
 import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
 
 //Load User
+
+export const loadUser = () => async (dispatch) => {
+  setAuthToken(localStorage.token);
+  try {
+    const res = await axios.get("/api/auth");
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: AUTH_ERROR,
+    });
+  }
+};
 
 //Register User
 
@@ -28,6 +44,7 @@ export const register = (formData) => async (dispatch) => {
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
+    loadUser();
   } catch (error) {
     dispatch({
       type: REGISTER_FAIL,

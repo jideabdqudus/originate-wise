@@ -12,15 +12,18 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setAlert } from "../actions/alertActions";
 import { register, clearErrors } from "../actions/authActions";
-import authReducer from "../reducers/authReducer";
+import { Redirect } from "react-router";
 
-const NewAccount = ({ setAlert, auth, register, clearErrors }) => {
+const NewAccount = (
+  { setAlert, error, register, isAuthenticated, clearErrors },
+  props
+) => {
   useEffect(() => {
-    if (auth.error === "User already exists") {
-      setAlert(auth.error, "error");
+    if (error === "User already exists") {
+      setAlert(error, "error");
       clearErrors();
-    }
-  }, [auth.error]);
+    } //eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -43,6 +46,10 @@ const NewAccount = ({ setAlert, auth, register, clearErrors }) => {
       register(formData);
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <div className="createForm">
@@ -159,7 +166,8 @@ NewAccount.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.authReducer,
+  error: state.authReducer.error,
+  isAuthenticated: state.authReducer.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { setAlert, register, clearErrors })(
