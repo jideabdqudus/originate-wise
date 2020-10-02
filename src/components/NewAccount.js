@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import {
   UserOutlined,
@@ -7,14 +7,38 @@ import {
   LikeOutlined,
 } from "@ant-design/icons";
 import "./components.css";
+import AlertInfo from "../layout/AlertInfo";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { setAlert } from "../actions/alertActions";
+import {register} from "../actions/authActions"
 
-const NewAccount = () => {
+const NewAccount = ({ setAlert, auth, register }) => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const { firstname, lastname, email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   const onFinish = async () => {
-    console.log("New Account");
+    if (firstname === "" || lastname === "" || email === "") {
+      setAlert("Please enter all fields", "error");
+    } else if (password.length < 8) {
+      setAlert("Password must be more than 8 characters", "warning");
+    } else {
+      register(formData)
+    }
   };
 
   return (
     <div className="createForm">
+      <AlertInfo />
       <Card className="cardHero">
         <Form
           name="normal_login"
@@ -37,6 +61,8 @@ const NewAccount = () => {
               }}
               prefix={<SmileOutlined className="site-form-item-icon" />}
               type="text"
+              value={firstname}
+              onChange={onChange}
               name="firstname"
               placeholder="First Name"
             />
@@ -56,6 +82,8 @@ const NewAccount = () => {
               }}
               prefix={<LikeOutlined className="site-form-item-icon" />}
               type="text"
+              value={lastname}
+              onChange={onChange}
               name="lastname"
               placeholder="Last Name"
             />
@@ -74,6 +102,8 @@ const NewAccount = () => {
               prefix={<UserOutlined className="site-form-item-icon" />}
               type="email"
               name="email"
+              value={email}
+              onChange={onChange}
               placeholder="Email Address"
             />
           </Form.Item>
@@ -89,6 +119,8 @@ const NewAccount = () => {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               name="password"
+              value={password}
+              onChange={onChange}
               placeholder="Password"
             />
           </Form.Item>
@@ -114,4 +146,12 @@ const NewAccount = () => {
   );
 };
 
-export default NewAccount;
+NewAccount.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+ 
+});
+
+export default connect(mapStateToProps, { setAlert, register })(NewAccount);

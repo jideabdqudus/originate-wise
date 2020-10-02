@@ -1,14 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./components.css";
 
 const LoginForm = () => {
-  const onFinish = () => {
-    console.log("Login");
-  };
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
+  const {  email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const onFinish = async () => {
+    console.log("Submitted");
+  };
   return (
     <div className="loginForm">
       <Card className="cardHero">
@@ -32,6 +41,8 @@ const LoginForm = () => {
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Email Address"
               type="email"
+              value={email}
+              onChange={onChange}
               name="email"
             />
           </Form.Item>
@@ -47,6 +58,8 @@ const LoginForm = () => {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               name="password"
+              value={password}
+              onChange={onChange}
               placeholder="Password"
             />
           </Form.Item>
