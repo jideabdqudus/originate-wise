@@ -1,43 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Input, Button, Row, Col, Card } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Redirect, Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { login, clearErrors } from "../actions/authActions";
-import { setAlert } from "../actions/alertActions";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./components.css";
-import AlertInfo from "../layout/AlertInfo";
 
-const LoginForm = ({ login, isAuthenticated, setAlert, error }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = formData;
-
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+const LoginForm = () => {
+  const onFinish = () => {
+    console.log("Login");
   };
-
-  const onFinish = async () => {
-    if (email === "") {
-      setAlert("Email Can't be left empty", "error");
-    } else if (password === "") {
-      setAlert("Is your password correct?", "warning");
-    } else {
-      login(email, password);
-    }
-  };
-
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
-  }
 
   return (
     <div className="loginForm">
-      <AlertInfo />
       <Card className="cardHero">
         <Form
           name="normal_login"
@@ -59,8 +32,6 @@ const LoginForm = ({ login, isAuthenticated, setAlert, error }) => {
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Email Address"
               type="email"
-              value={email}
-              onChange={onChange}
               name="email"
             />
           </Form.Item>
@@ -75,8 +46,6 @@ const LoginForm = ({ login, isAuthenticated, setAlert, error }) => {
               }}
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              value={password}
-              onChange={onChange}
               name="password"
               placeholder="Password"
             />
@@ -119,16 +88,4 @@ const LoginForm = ({ login, isAuthenticated, setAlert, error }) => {
   );
 };
 
-LoginForm.propTypes = {
-  login: PropTypes.func.isRequired,
-  setAlert: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.authReducer.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { login, setAlert, clearErrors })(
-  LoginForm
-);
+export default LoginForm;

@@ -1,27 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Form, Input, Button, Row, Col } from "antd";
 import {
   RiseOutlined,
   CreditCardOutlined,
   SmileOutlined,
 } from "@ant-design/icons";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { addPlan } from "../actions/plansActions";
 import "./components.css";
 
-const PlanForm = ({ addPlan }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    amount: "",
-    desc: "",
-  });
-
+const PlanForm = () => {
   const onFinish = () => {
-    addPlan(formData);
-  };
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log("Plan Form");
   };
   return (
     <Fragment>
@@ -41,7 +29,6 @@ const PlanForm = ({ addPlan }) => {
                 type="text"
                 required="true"
                 name="title"
-                onChange={onChange}
                 prefix={<RiseOutlined className="site-form-item-icon" />}
               />
             </Form.Item>
@@ -58,7 +45,6 @@ const PlanForm = ({ addPlan }) => {
                 className="planFormInput"
                 name="amount"
                 required="true"
-                onChange={onChange}
                 prefix={<CreditCardOutlined className="site-form-item-icon" />}
               />
             </Form.Item>
@@ -74,7 +60,6 @@ const PlanForm = ({ addPlan }) => {
                 className="planFormInput"
                 name="desc"
                 required="true"
-                onChange={onChange}
                 prefix={<SmileOutlined className="site-form-item-icon" />}
               />
             </Form.Item>
@@ -90,12 +75,4 @@ const PlanForm = ({ addPlan }) => {
   );
 };
 
-PlanForm.propTypes = {
-  plan: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  plan: state.plansReducer,
-});
-
-export default connect(mapStateToProps, { addPlan })(PlanForm);
+export default PlanForm;

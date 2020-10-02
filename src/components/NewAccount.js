@@ -7,46 +7,14 @@ import {
   LikeOutlined,
 } from "@ant-design/icons";
 import "./components.css";
-import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { register } from "../actions/authActions";
-import { setAlert } from "../actions/alertActions";
-import PropTypes from "prop-types";
-import AlertInfo from "../layout/AlertInfo";
 
-const NewAccount = ({ isAuthenticated, register, setAlert }) => {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-  });
-
-  const { firstname, lastname, email, password } = formData;
-
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
+const NewAccount = () => {
   const onFinish = async () => {
-    if (firstname === "" || lastname === "" || email === "") {
-      setAlert("Fields can not be empty", "error");
-    } else if (password.length < 8) {
-      setAlert("Password has to be longer than that", "warning");
-    } else if (lastname === "") {
-      setAlert("I need your last name", "warning");
-    } else {
-      register(firstname, lastname, email, password);
-    }
+    console.log("New Account");
   };
-
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
-  }
 
   return (
     <div className="createForm">
-      <AlertInfo />
       <Card className="cardHero">
         <Form
           name="normal_login"
@@ -69,9 +37,7 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               }}
               prefix={<SmileOutlined className="site-form-item-icon" />}
               type="text"
-              value={firstname}
               name="firstname"
-              onChange={onChange}
               placeholder="First Name"
             />
           </Form.Item>
@@ -90,8 +56,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               }}
               prefix={<LikeOutlined className="site-form-item-icon" />}
               type="text"
-              value={lastname}
-              onChange={onChange}
               name="lastname"
               placeholder="Last Name"
             />
@@ -110,8 +74,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               prefix={<UserOutlined className="site-form-item-icon" />}
               type="email"
               name="email"
-              onChange={onChange}
-              value={email}
               placeholder="Email Address"
             />
           </Form.Item>
@@ -127,8 +89,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               name="password"
-              value={password}
-              onChange={onChange}
               placeholder="Password"
             />
           </Form.Item>
@@ -154,14 +114,4 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
   );
 };
 
-NewAccount.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.authReducer.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { register, setAlert })(NewAccount);
+export default NewAccount;
