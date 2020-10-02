@@ -36,7 +36,6 @@ const NewAccount = ({ isAuthenticated, register, setAlert }) => {
     } else if (lastname === "") {
       setAlert("I need your last name", "warning");
     } else {
-      setAlert("Just Perfect", "success");
       register(firstname, lastname, email, password);
     }
   };

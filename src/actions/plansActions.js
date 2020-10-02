@@ -22,12 +22,10 @@ import setAuthToken from "../utils/setAuthToken";
 // };
 
 export const getPlan = () => async (dispatch) => {
-    setAuthToken(localStorage.token);
   try {
     const res = await axios.get("/api/plans");
 
     dispatch({ type: GET_PLAN, payload: res.data });
-    console.log("Get Plan Successful");
   } catch (error) {
     dispatch({ type: PLAN_ERROR, payload: error.response.msg });
   }
@@ -35,7 +33,6 @@ export const getPlan = () => async (dispatch) => {
 
 // Add post
 export const addPlan = (formData) => async (dispatch) => {
-  setAuthToken(localStorage.token);
   try {
     const res = await api.post("/plans", formData);
 
@@ -43,7 +40,6 @@ export const addPlan = (formData) => async (dispatch) => {
       type: ADD_PLAN,
       payload: res.data,
     });
-    console.log("Successful");
   } catch (err) {
     dispatch({
       type: PLAN_ERROR,
