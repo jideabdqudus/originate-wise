@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../actions/authActions";
 
-const NavbarTop = ({ logout, user }) => {
+const NavbarTop = ({ logout, user, isAuthenticated }) => {
   const onClick = () => {
-    console.log("working");
+   console.log(user.firstname)
+   console.log(user.lastname)
   };
 
   return (
@@ -15,7 +16,7 @@ const NavbarTop = ({ logout, user }) => {
       <PageHeader
         ghost={false}
         title="Howdy"
-        subTitle={`${user.firstname} ${user.lastname}`}
+        subTitle={``}
         extra={[
           <Button
             key="1"
@@ -41,7 +42,7 @@ NavbarTop.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.authReducer.user,
+  isAuthenticated: state.authReducer.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { logout })(NavbarTop);

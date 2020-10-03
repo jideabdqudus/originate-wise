@@ -5,14 +5,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loadUser } from "../actions/authActions";
 
-const Dashboard = ({ loadUser }) => {
+const Dashboard = ({ loadUser, user }) => {
   useEffect(() => {
     loadUser();
     //eslint-disable-next-line
   }, []);
   return (
     <div>
-    <NavbarTop/>
+    <NavbarTop user={user}/>
       <SiderLayout />
     </div>
   );
@@ -22,4 +22,8 @@ Dashboard.propTypes = {
   loadUser: PropTypes.func.isRequired,
 };
 
-export default connect(null, { loadUser })(Dashboard);
+const mapStateToProps = (state) => ({
+  user: state.authReducer.user,
+});
+
+export default connect(mapStateToProps, { loadUser })(Dashboard);
