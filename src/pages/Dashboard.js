@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import SiderLayout from "../layout/SiderLayout";
+import NavbarTop from "../layout/NavbarTop";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loadUser } from "../actions/authActions";
@@ -11,6 +12,7 @@ const Dashboard = ({ loadUser }) => {
   }, []);
   return (
     <div>
+    <NavbarTop/>
       <SiderLayout />
     </div>
   );
