@@ -12,7 +12,7 @@ const Dashboard = ({ loadUser, user }) => {
   }, []);
   return (
     <div>
-    <NavbarTop user={user}/>
+    <NavbarTop />
       <SiderLayout />
     </div>
   );

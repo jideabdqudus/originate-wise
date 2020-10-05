@@ -7,12 +7,13 @@ import { logout } from "../actions/authActions";
 
 const NavbarTop = ({ logout, user, isAuthenticated }) => {
   const onClick = () => {
-   console.log(user.firstname)
-   console.log(user.lastname)
+    console.log(user.firstname);
+    console.log(user.lastname);
   };
 
   return (
     <div className="site-page-header-ghost-wrapper">
+    <h1>{user.firstname}</h1>
       <PageHeader
         ghost={false}
         title="Howdy"
@@ -43,6 +44,7 @@ NavbarTop.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.authReducer.isAuthenticated,
+  user: state.authReducer.user
 });
 
 export default connect(mapStateToProps, { logout })(NavbarTop);
