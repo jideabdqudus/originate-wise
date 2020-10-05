@@ -3,6 +3,7 @@ import SiderLayout2 from "../layout/SiderLayout2";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loadUser } from "../actions/authActions";
+import NavbarTop from "../layout/NavbarTop";
 
 const Plans = ({ loadUser }) => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const Plans = ({ loadUser }) => {
   }, []);
   return (
     <div>
+    <NavbarTop/>
       <SiderLayout2 />
     </div>
   );

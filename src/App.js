@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import History from "./pages/History";
 import setAuthToken from "./utils/setAuthToken";
+import PrivateRoute from "./routing/PrivateRoute"
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -19,10 +20,10 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/create" component={CreateAccount} />
-          <Route exact path="/dashboard/plans" component={Plans} />
-          <Route exact path="/dashboard/history" component={History} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/create" component={CreateAccount} />
+          <PrivateRoute exact path="/dashboard/plans" component={Plans} />
+          <PrivateRoute exact path="/dashboard/history" component={History} />
         </Switch>
       </BrowserRouter>
     </Provider>
