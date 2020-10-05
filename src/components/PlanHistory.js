@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { getPlan } from "../actions/plansActions";
 import PropTypes from "prop-types";
 
-const PlanHistory = ({ getPlan, plans: { plans, current, loading } }) => {
+const PlanHistory = ({ getPlan, plans: { plans, loading } }) => {
   useEffect(() => {
     getPlan();
     //eslint-disable-next-line
@@ -37,7 +37,7 @@ const PlanHistory = ({ getPlan, plans: { plans, current, loading } }) => {
         {plans !== null && !loading ? (
           <div>
             {plans.map((plan) => (
-              <Row>
+              <Row key={plan._id}>
                 <Col span={2} onClick={showModal}>
                   <img src={SavingsImg} alt="Savings" height="50" />
                 </Col>
@@ -73,6 +73,7 @@ const PlanHistory = ({ getPlan, plans: { plans, current, loading } }) => {
                 <hr />
                 <Modal
                   centered
+                  key={plan._id}
                   visible={visible}
                   onOk={handleOk}
                   onCancel={handleCancel}
