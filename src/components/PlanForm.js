@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState} from "react";
 import { Form, Input, Button, Row, Col } from "antd";
 import {
   RiseOutlined,
@@ -6,14 +6,35 @@ import {
   SmileOutlined,
 } from "@ant-design/icons";
 import "./components.css";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addPlan } from "../actions/plansActions";
+import { setAlert } from "../actions/alertActions";
+import AlertInfo from "../layout/AlertInfo";
 
-const PlanForm = () => {
-  const onFinish = () => {
-    console.log("Plan Form");
+const PlanForm = ({ setAlert, addPlan }) => {
+  const [formData, setFormData] = useState({
+    title: "",
+    amount: "",
+    desc: "",
+  });
+
+  const { title, amount, desc } = formData;
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const onFinish = async () => {
+    if (title === "" || amount === "" || desc === "") {
+      setAlert("Please enter all fields", "error");
+    } else {
+      console.log(formData);
+    }
   };
   return (
     <Fragment>
       <Row>
+        <AlertInfo />
         <Col span={8}>
           <Form layout="vertical" onFinish={onFinish}>
             <h3 className="planText">What are you saving for?</h3>{" "}
@@ -27,7 +48,9 @@ const PlanForm = () => {
                 className="planFormInput"
                 placeholder="Enter Plan name"
                 type="text"
+                onChange={onChange}
                 required="true"
+                value={title}
                 name="title"
                 prefix={<RiseOutlined className="site-form-item-icon" />}
               />
@@ -44,6 +67,8 @@ const PlanForm = () => {
                 type="number"
                 className="planFormInput"
                 name="amount"
+                onChange={onChange}
+                value={amount}
                 required="true"
                 prefix={<CreditCardOutlined className="site-form-item-icon" />}
               />
@@ -59,6 +84,8 @@ const PlanForm = () => {
                 type="text"
                 className="planFormInput"
                 name="desc"
+                value={desc}
+                onChange={onChange}
                 required="true"
                 prefix={<SmileOutlined className="site-form-item-icon" />}
               />
@@ -75,4 +102,13 @@ const PlanForm = () => {
   );
 };
 
-export default PlanForm;
+PlanForm.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  addPlan: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({});
+
+export default connect(null, { setAlert, addPlan })(
+  PlanForm
+);

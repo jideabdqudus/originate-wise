@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import History from "./pages/History";
 import setAuthToken from "./utils/setAuthToken";
-import PrivateRoute from "./routing/PrivateRoute"
+import PrivateRoute from "./routing/PrivateRoute";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

@@ -128,7 +128,7 @@ const LoginForm = (
 
 LoginForm.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
   clearErrors: PropTypes.func.isRequired,
 };
 
