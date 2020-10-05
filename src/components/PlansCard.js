@@ -1,16 +1,8 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { Row, Col, Card, Badge } from "antd";
 import PlanForm from "./PlanForm";
-import { connect } from "react-redux";
-import {getPlan} from "../actions/plansActions"
-import PropTypes from 'prop-types'
 
-
-const PlansCard = ({plans: {plans}}) => {
-  useEffect(() => {
-    getPlan()
-    console.log(getPlan) 
-  })
+const PlansCard = () => {
   return (
     <div>
       <Row>
@@ -76,12 +68,5 @@ const PlansCard = ({plans: {plans}}) => {
   );
 };
 
-PlansCard.propTypes={
-  plans: PropTypes.func.isRequired,
-}
 
-const mapStateToProps =(state)=>({
-  plans: state.plansReducer
-})
-
-export default connect(mapStateToProps)(PlansCard);
+export default (PlansCard);

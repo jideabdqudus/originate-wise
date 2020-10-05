@@ -3,7 +3,6 @@ import { ADD_PLAN, GET_PLAN, PLAN_ERROR } from "../actions/Types";
 const initialState = {
   plans: [],
   current: null,
-  filtered: null,
   loading: false,
   error: null,
 };

@@ -1,4 +1,4 @@
-import React, { Fragment, useState} from "react";
+import React, { Fragment, useState } from "react";
 import { Form, Input, Button, Row, Col } from "antd";
 import {
   RiseOutlined,
@@ -14,22 +14,19 @@ import AlertInfo from "../layout/AlertInfo";
 
 const PlanForm = ({ setAlert, addPlan }) => {
   const [formData, setFormData] = useState({
-    title: "",
+    plan: "",
     amount: "",
     desc: "",
   });
 
-  const { title, amount, desc } = formData;
+  const { plan, amount, desc } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const onFinish = async () => {
-    if (title === "" || amount === "" || desc === "") {
-      setAlert("Please enter all fields", "error");
-    } else {
-      console.log(formData);
-    }
+  const onFinish = () => {
+    addPlan(formData);
+    setFormData("");
   };
   return (
     <Fragment>
@@ -50,8 +47,8 @@ const PlanForm = ({ setAlert, addPlan }) => {
                 type="text"
                 onChange={onChange}
                 required="true"
-                value={title}
-                name="title"
+                value={plan}
+                name="plan"
                 prefix={<RiseOutlined className="site-form-item-icon" />}
               />
             </Form.Item>
@@ -107,8 +104,4 @@ PlanForm.propTypes = {
   addPlan: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({});
-
-export default connect(null, { setAlert, addPlan })(
-  PlanForm
-);
+export default connect(null, { setAlert, addPlan })(PlanForm);

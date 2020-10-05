@@ -10,7 +10,7 @@ export const getPlan = () => async (dispatch) => {
   } catch (error) {
     dispatch({ type: PLAN_ERROR, payload: error.response.msg });
   }
-};
+};  
 
 // Add post
 export const addPlan = (formData) => async (dispatch) => {
@@ -25,7 +25,6 @@ export const addPlan = (formData) => async (dispatch) => {
       type: ADD_PLAN,
       payload: res.data,
     });
-    console.log(formData)
   } catch (err) {
     dispatch({
       type: PLAN_ERROR,
