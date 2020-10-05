@@ -5,14 +5,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loadUser } from "../actions/authActions";
 
-const Dashboard = ({ loadUser, user }) => {
+const Dashboard = ({ loadUser }) => {
   useEffect(() => {
     loadUser();
     //eslint-disable-next-line
   }, []);
   return (
     <div>
-    <NavbarTop />
+      <NavbarTop />
       <SiderLayout />
     </div>
   );
